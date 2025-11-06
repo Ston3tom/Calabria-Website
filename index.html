@@ -6,6 +6,7 @@
     <title>Calabria Tours Website</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -14,16 +15,16 @@
       <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
       <button class="lang-btn" data-lang="it" aria-label="Italiano">IT</button>
       <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+      <button class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
     </aside>
     <header class="site-header">
       <div class="container">
         <h1><a href="#top" class="brand" data-i18n="brand">Calabria Tours</a></h1>
         <nav class="site-nav" aria-label="Primary">
-          <a href="#hero" data-i18n="nav.explore">Explore</a>
           <a href="#why" data-i18n="nav.why">Why Calabria</a>
           <a href="#about" data-i18n="nav.about">About</a>
           <a href="#services" data-i18n="nav.trips">Trips Information</a>
-          <a href="#cta" class="button" data-i18n="nav.book">Book / Reserve</a>
+          <a href="#contact" class="button" data-i18n="nav.book">Book / Reserve</a>
         </nav>
       </div>
     </header>
@@ -35,7 +36,7 @@
             <h2 data-i18n="hero.title">Explore Calabria</h2>
             <p data-i18n="hero.subtitle">From sea to mountains, culture and cuisine.</p>
             <div class="hero-cta">
-              <a href="#cta" class="button" data-i18n="cta.book">Book Now</a>
+              <a href="#contact" class="button" data-i18n="cta.book">Book Now</a>
             </div>
           </div>
         </section>
@@ -66,7 +67,7 @@
           <div class="grid two">
             <div>
               <p data-i18n="about.text">Tours crafted by locals who love Calabria.</p>
-              <p><a href="#team" class="button ghost" data-i18n="about.team">Meet our team</a></p>
+              <p><a href="#contact" class="button ghost" data-i18n="about.team">Meet our team</a></p>
             </div>
             <div class="about-photo" aria-label="Local guide photo"></div>
           </div>
@@ -82,9 +83,67 @@
           </ul>
         </section>
 
-        <section id="cta" class="cta">
-          <h2 data-i18n="cta.title">Book / Reserve now</h2>
-          <a href="#" class="button" data-i18n="cta.book">Book / Reserve now</a>
+        <section id="contact" class="contact-form">
+          <h2 data-i18n="contact.title">Contact Us</h2>
+          <form id="contactForm" class="form">
+            <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" data-i18n="contact.firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required placeholder="" data-i18n-placeholder="contact.firstNamePlaceholder">
+            </div>
+            <div class="form-group">
+              <label for="lastName" data-i18n="contact.lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required placeholder="" data-i18n-placeholder="contact.lastNamePlaceholder">
+            </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="travellers" data-i18n="contact.travellers">How many travellers? *</label>
+              <select id="travellers" name="travellers" required>
+                <option value="1" data-i18n="contact.oneTraveller" selected>1 traveller</option>
+                <option value="2" data-i18n="contact.twoTravellers">2 travellers</option>
+                <option value="3" data-i18n="contact.threeTravellers">3 travellers</option>
+                <option value="4" data-i18n="contact.fourTravellers">4 travellers</option>
+                <option value="5+" data-i18n="contact.fivePlusTravellers">5+ travellers</option>
+                <option value="explain" data-i18n="contact.explainInMessage">Will explain in additional message</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" data-i18n="contact.email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="" data-i18n-placeholder="contact.emailPlaceholder">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" data-i18n="contact.phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="" data-i18n-placeholder="contact.phonePlaceholder">
+            </div>
+            
+            <div class="form-group">
+              <label data-i18n="contact.preferredContact">Preferred Contact Method *</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="contactMethod" value="email" required>
+                  <span data-i18n="contact.emailOnly">Email me</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="contactMethod" value="both" required>
+                  <span data-i18n="contact.both">Both call and email</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="contactMethod" value="different" required>
+                  <span data-i18n="contact.different">Different method</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" data-i18n="contact.message">Additional Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+            </div>
+            
+            <button type="submit" class="button" data-i18n="contact.submit">Send Inquiry</button>
+          </form>
         </section>
       </div>
     </main>
