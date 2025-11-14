@@ -111,11 +111,11 @@ function applyLang(lang, texts) {
 function getTranslations() {
   return {
     en: {
-      brand: 'Calabria Tours',
+      brand: 'Calabria Essence',
       nav: { why: 'Why Calabria', about: 'About Us', trips: 'Trips Information', book: 'Book / Reserve' },
       hero: { title: 'Explore Calabria', subtitle: 'From sea to mountains, culture and cuisine.' },
       why: { title: 'Why Calabria?', beach: 'Beaches', beach_desc: 'Crystal seas and hidden coves.', food: 'Food', food_desc: 'Spicy, authentic, unforgettable.', culture: 'Culture', culture_desc: 'Traditions carved by time.' },
-      about: { title: 'About Us', text: 'Tours crafted by locals who love Calabria.', team: 'Meet our team' },
+      about: { title: 'About Us', text: 'Tours crafted by locals who love Calabria.', text2: 'Local experts born and raised in Calabria', text3: 'Years of experience showing travelers our beautiful region', text4: 'Fluent in multiple languages for your comfort', text5: 'Dedicated to creating memorable experiences for every guest', text6: 'Committed to sustainable and responsible tourism' },
       trips: { title: 'Trips Information (Our Service)', transfer: 'Airport transfers', wine: 'Vineyard visits', driver: 'Private driver', culinary: 'Culinary workshops' },
       cta: { book: 'Book Now' },
       contact: {
@@ -138,18 +138,17 @@ function getTranslations() {
         preferredContact: 'Preferred Contact Method',
         emailOnly: 'Email me',
         both: 'Both call and email',
-        different: 'Different method',
         message: 'Additional Message',
         messagePlaceholder: 'Tell us about your travel preferences, special requests, or any questions you have...',
         submit: 'Send Inquiry'
       }
     },
     it: {
-      brand: 'Calabria Tours',
+      brand: 'Calabria Essence',
       nav: { why: 'Perché Calabria', about: 'Chi siamo', trips: 'Informazioni Viaggi', book: 'Prenota / Riserva' },
       hero: { title: 'Esplora la Calabria', subtitle: 'Dal mare alle montagne, cultura e cucina.' },
       why: { title: 'Perché Calabria?', beach: 'Spiagge', beach_desc: 'Mare cristallino e calette nascoste.', food: 'Cibo', food_desc: 'Piccante, autentico, indimenticabile.', culture: 'Cultura', culture_desc: 'Tradizioni scolpite dal tempo.' },
-      about: { title: 'Chi siamo', text: 'Tour creati da locali che amano la Calabria.', team: 'Conosci il team' },
+      about: { title: 'Chi siamo', text: 'Tour creati da locali che amano la Calabria.', text2: 'Esperti locali nati e cresciuti in Calabria', text3: 'Anni di esperienza nel mostrare ai viaggiatori la nostra bellissima regione', text4: 'Fluenti in più lingue per il tuo comfort', text5: 'Dedicati a creare esperienze memorabili per ogni ospite', text6: 'Impegnati nel turismo sostenibile e responsabile' },
       trips: { title: 'Informazioni sui Viaggi (I nostri servizi)', transfer: 'Transfer da/per aeroporto', wine: 'Visite in cantina', driver: 'Autista privato', culinary: 'Laboratori di cucina' },
       cta: { book: 'Prenota Ora' },
       contact: {
@@ -172,18 +171,17 @@ function getTranslations() {
         preferredContact: 'Metodo di Contatto Preferito',
         emailOnly: 'Inviami una email',
         both: 'Sia chiamata che email',
-        different: 'Metodo diverso',
         message: 'Messaggio Aggiuntivo',
         messagePlaceholder: 'Raccontaci le tue preferenze di viaggio, richieste speciali o qualsiasi domanda tu abbia...',
         submit: 'Invia Richiesta'
       }
     },
     de: {
-      brand: 'Calabria Tours',
+      brand: 'Calabria Essence',
       nav: { why: 'Warum Kalabrien', about: 'Über uns', trips: 'Reiseinformationen', book: 'Buchen / Reservieren' },
       hero: { title: 'Kalabrien entdecken', subtitle: 'Vom Meer zu den Bergen, Kultur und Küche.' },
       why: { title: 'Warum Kalabrien?', beach: 'Strände', beach_desc: 'Kristallklares Meer und versteckte Buchten.', food: 'Essen', food_desc: 'Würzig, authentisch, unvergesslich.', culture: 'Kultur', culture_desc: 'Traditionen, vom Lauf der Zeit geformt.' },
-      about: { title: 'Über uns', text: 'Touren von Einheimischen, die Kalabrien lieben.', team: 'Unser Team' },
+      about: { title: 'Über uns', text: 'Touren von Einheimischen, die Kalabrien lieben.', text2: 'Lokale Experten, geboren und aufgewachsen in Kalabrien', text3: 'Jahrelange Erfahrung darin, Reisenden unsere schöne Region zu zeigen', text4: 'Mehrsprachig für Ihren Komfort', text5: 'Bemüht, unvergessliche Erlebnisse für jeden Gast zu schaffen', text6: 'Verpflichtet zu nachhaltigem und verantwortungsvollem Tourismus' },
       trips: { title: 'Reiseinformationen (Unser Service)', transfer: 'Flughafentransfers', wine: 'Weingutbesuche', driver: 'Privatfahrer', culinary: 'Kochworkshops' },
       cta: { book: 'Jetzt Buchen' },
       contact: {
@@ -206,18 +204,17 @@ function getTranslations() {
         preferredContact: 'Bevorzugte Kontaktmethode',
         emailOnly: 'E-Mail senden',
         both: 'Sowohl Anruf als auch E-Mail',
-        different: 'Andere Methode',
         message: 'Zusätzliche Nachricht',
         messagePlaceholder: 'Erzählen Sie uns von Ihren Reisevorlieben, besonderen Wünschen oder Fragen...',
         submit: 'Anfrage senden'
       }
     },
     cs: {
-      brand: 'Calabria Tours',
+      brand: 'Calabria Essence',
       nav: { why: 'Proč Kalábrie', about: 'O nás', trips: 'Informace o výletech', book: 'Rezervovat' },
       hero: { title: 'Objevte Kalábrii', subtitle: 'Od moře k horám, kultura a kuchyně.' },
       why: { title: 'Proč Kalábrie?', beach: 'Pláže', beach_desc: 'Křišťálové moře a skryté zátoky.', food: 'Jídlo', food_desc: 'Pikantní, autentické, nezapomenutelné.', culture: 'Kultura', culture_desc: 'Tradice vyryté časem.' },
-      about: { title: 'O nás', text: 'Výlety vytvořené místními, kteří milují Kalábrii.', team: 'Poznejte náš tým' },
+      about: { title: 'O nás', text: 'Výlety vytvořené místními, kteří milují Kalábrii.', text2: 'Místní odborníci narození a vychovaní v Kalábrii', text3: 'Roky zkušeností s představováním našeho krásného regionu cestovatelům', text4: 'Plynně mluvíme několika jazyky pro váš komfort', text5: 'Oddaní vytváření nezapomenutelných zážitků pro každého hosta', text6: 'Zavázáni k udržitelnému a odpovědnému cestovnímu ruchu' },
       trips: { title: 'Informace o výletech (Naše služby)', transfer: 'Transfery z/na letiště', wine: 'Návštěvy vinařství', driver: 'Soukromý řidič', culinary: 'Kulinářské workshopy' },
       cta: { book: 'Rezervovat Nyní' },
       contact: {
@@ -240,7 +237,6 @@ function getTranslations() {
         preferredContact: 'Preferovaný způsob kontaktu',
         emailOnly: 'Pošlete mi e-mail',
         both: 'Jak zavolat, tak e-mail',
-        different: 'Jiný způsob',
         message: 'Dodatečná zpráva',
         messagePlaceholder: 'Řekněte nám o svých cestovních preferencích, speciálních požadavcích nebo jakýchkoli otázkách...',
         submit: 'Odeslat dotaz'
@@ -272,20 +268,22 @@ function setupContactForm() {
   
   // Handle contact method radio buttons change
   const contactMethodRadios = form.querySelectorAll('input[name="contactMethod"]');
-  if (contactMethodRadios.length > 0 && messageField) {
+  const phoneField = form.querySelector('#phone');
+  
+  if (contactMethodRadios.length > 0) {
     contactMethodRadios.forEach(radio => {
       radio.addEventListener('change', function() {
         updateMessageFieldRequirement();
+        updatePhoneFieldRequirement();
       });
     });
   }
   
-  // Function to update message field requirement based on travellers and contact method
+  // Function to update message field requirement based on travellers
   function updateMessageFieldRequirement() {
     const travellersValue = travellersSelect ? travellersSelect.value : '';
-    const contactMethodValue = form.querySelector('input[name="contactMethod"]:checked')?.value || '';
     
-    if (travellersValue === 'explain' || contactMethodValue === 'different') {
+    if (travellersValue === 'explain') {
       // Make message field required
       messageField.setAttribute('required', 'required');
       messageField.classList.add('required-field');
@@ -300,6 +298,36 @@ function setupContactForm() {
         errorMsg.remove();
       }
     }
+  }
+  
+  // Function to update phone field requirement based on contact method
+  function updatePhoneFieldRequirement() {
+    const contactMethodValue = form.querySelector('input[name="contactMethod"]:checked')?.value || '';
+    
+    if (contactMethodValue === 'both' && phoneField) {
+      // Make phone field required
+      phoneField.setAttribute('required', 'required');
+      phoneField.classList.add('required-field');
+      // Add validation listeners if not already added
+      phoneField.addEventListener('blur', validateField);
+      phoneField.addEventListener('input', clearFieldError);
+    } else if (phoneField) {
+      // Remove required attribute
+      phoneField.removeAttribute('required');
+      phoneField.classList.remove('required-field');
+      // Clear any error styling
+      phoneField.classList.remove('error');
+      const errorMsg = phoneField.parentNode.querySelector('.error-message');
+      if (errorMsg) {
+        errorMsg.remove();
+      }
+    }
+  }
+  
+  // Initialize phone field requirement on page load if a contact method is already selected
+  const initialContactMethod = form.querySelector('input[name="contactMethod"]:checked');
+  if (initialContactMethod) {
+    updatePhoneFieldRequirement();
   }
   
   // Form submission

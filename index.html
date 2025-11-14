@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calabria Tours Website</title>
+    <title>Calabria Essence Website</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -19,7 +19,12 @@
     </aside>
     <header class="site-header">
       <div class="container">
-        <h1><a href="#top" class="brand" data-i18n="brand">Calabria Tours</a></h1>
+        <div class="brand-container">
+          <a href="#top" class="brand">
+            <img src="logo.jpg" alt="Calabria Essence" class="logo" />
+            <span data-i18n="brand">Calabria Essence</span>
+          </a>
+        </div>
         <nav class="site-nav" aria-label="Primary">
           <a href="#why" data-i18n="nav.why">Why Calabria</a>
           <a href="#about" data-i18n="nav.about">About</a>
@@ -35,9 +40,6 @@
           <div class="hero-content">
             <h2 data-i18n="hero.title">Explore Calabria</h2>
             <p data-i18n="hero.subtitle">From sea to mountains, culture and cuisine.</p>
-            <div class="hero-cta">
-              <a href="#contact" class="button" data-i18n="cta.book">Book Now</a>
-            </div>
           </div>
         </section>
 
@@ -45,19 +47,19 @@
           <h2 data-i18n="why.title">Why Calabria?</h2>
           <div class="cards">
             <article class="card">
-              <div class="card-media card-beach" aria-hidden="true"></div>
-              <h3 data-i18n="why.beach">Beaches</h3>
-              <p data-i18n="why.beach_desc">Crystal seas and hidden coves.</p>
+              <div class="card-media card-beach">
+                <h3 data-i18n="why.beach">Beaches</h3>
+              </div>
             </article>
             <article class="card">
-              <div class="card-media card-food" aria-hidden="true"></div>
-              <h3 data-i18n="why.food">Food</h3>
-              <p data-i18n="why.food_desc">Spicy, authentic, unforgettable.</p>
+              <div class="card-media card-food">
+                <h3 data-i18n="why.food">Food</h3>
+              </div>
             </article>
             <article class="card">
-              <div class="card-media card-culture" aria-hidden="true"></div>
-              <h3 data-i18n="why.culture">Culture</h3>
-              <p data-i18n="why.culture_desc">Traditions carved by time.</p>
+              <div class="card-media card-culture">
+                <h3 data-i18n="why.culture">Culture</h3>
+              </div>
             </article>
           </div>
         </section>
@@ -65,11 +67,17 @@
         <section id="about">
           <h2 data-i18n="about.title">About Us</h2>
           <div class="grid two">
-            <div>
+            <div class="about-text">
               <p data-i18n="about.text">Tours crafted by locals who love Calabria.</p>
-              <p><a href="#contact" class="button ghost" data-i18n="about.team">Meet our team</a></p>
+              <ul class="about-list">
+                <li data-i18n="about.text2">Local experts born and raised in Calabria</li>
+                <li data-i18n="about.text3">Years of experience showing travelers our beautiful region</li>
+                <li data-i18n="about.text4">Fluent in multiple languages for your comfort</li>
+                <li data-i18n="about.text5">Dedicated to creating memorable experiences for every guest</li>
+                <li data-i18n="about.text6">Committed to sustainable and responsible tourism</li>
+              </ul>
             </div>
-            <div class="about-photo" aria-label="Local guide photo"></div>
+            <div class="about-photo" aria-label="About us photo"></div>
           </div>
         </section>
 
@@ -129,10 +137,6 @@
                 <label class="radio-label">
                   <input type="radio" name="contactMethod" value="both" required>
                   <span data-i18n="contact.both">Both call and email</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="contactMethod" value="different" required>
-                  <span data-i18n="contact.different">Different method</span>
                 </label>
               </div>
             </div>
