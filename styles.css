@@ -244,9 +244,9 @@ section {
   max-width: 90%;
   line-height: 1.4;
 }
-.card-beach { background: url('beach_section.jpg') center/cover no-repeat; }
-.card-food { background: url('food_section.jpg') center/cover no-repeat; }
-.card-culture { background: url('culture_section.jpg') center/cover no-repeat; }
+.card-media.card-beach { background: url('beach_section.jpg') center/cover no-repeat !important; }
+.card-media.card-food { background: url('food_section.jpg') center/cover no-repeat !important; }
+.card-media.card-culture { background: url('culture_section.jpg') center/cover no-repeat !important; }
 
 .about-content {
   position: relative;
@@ -721,12 +721,12 @@ section {
     background-repeat: no-repeat;
   }
   
-  .card-beach,
-  .card-food,
-  .card-culture {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  .card-media.card-beach,
+  .card-media.card-food,
+  .card-media.card-culture {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
   }
   
   .card-media h3 {
