@@ -244,9 +244,9 @@ section {
   max-width: 90%;
   line-height: 1.4;
 }
-.card-media.card-beach { background: url('beach_section.JPG') center/cover no-repeat !important; }
-.card-media.card-food { background: url('food_section.JPG') center/cover no-repeat !important; }
-.card-media.card-culture { background: url('culture_section.JPG') center/cover no-repeat !important; }
+.card-media.card-beach { background: url('beach_section.jpg') center/cover no-repeat !important; }
+.card-media.card-food { background: url('food_section.jpg') center/cover no-repeat !important; }
+.card-media.card-culture { background: url('culture_section.jpg') center/cover no-repeat !important; }
 
 .about-content {
   position: relative;
@@ -275,7 +275,7 @@ section {
   aspect-ratio: 3 / 4;
   margin: 0 0 20px 24px;
   border-radius: 12px; 
-  background: url('AboutUs_Section.jpg') 42% center/cover no-repeat, #e2e8f0;
+  background: url('aboutus_section.jpg') 42% center/cover no-repeat, #e2e8f0;
   shape-outside: border-box;
   shape-margin: 24px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
