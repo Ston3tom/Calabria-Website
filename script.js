@@ -14,7 +14,7 @@ const EMAILJS_CONFIG = {
     en: 'template_n7cym2v', // English template ID
     it: 'template_n7cym2v', // Italian template ID 
     de: 'template_n7cym2v', // German template ID 
-    cs: 'template_99y2afg'  // Czech template ID
+    cz: 'template_99y2afg'  // Czech template ID
   },
   publicKey: 'D8Gv9KKB3FaW3b9P5' // Replace with your EmailJS public key
 };
@@ -125,28 +125,29 @@ function getTranslations() {
         decision: 'So we decided to bring Calabria to the world the same way Lorenzo grew up experiencing it: through the local\'s eyes.',
         today: 'Today, we\'re turning that vision into reality — inviting you to join us on a journey built on genuine encounters, local meals, hidden corners, and the true spirit of Southern Italy.',
         dream: 'This is our dream becoming real, and we\'d be genuinely grateful to have you be a part of it.',
-        welcome: 'Benvenuti — let\'s explore Calabria together, through the eyes of the locals.'
+        welcome: 'Benvenuti — let\'s explore Calabria together, through the eyes of the locals.',
+        photoQuote: 'Through the eyes of the locals'
       },
       trips: { 
         title: 'Trip Services', 
-        itinerary: '6-day itinerary designed by locals (5night) 🗺️',
-        driver: 'Private driver during all stages of the itinerary🚐',
+        itinerary: '6-day itinerary designed by locals (5night)',
+        driver: 'Private driver during all stages of the itinerary',
         pension: 'Half pension',
-        beaches: 'Different beach every day 🏖️',
+        beaches: 'Different beach every day',
         activitiesTitle: 'Activities highlights:',
-        wine: 'Vine tasting🍷',
-        boat: 'Boat day🚤',
-        pasta: 'PastaClass🍝',
-        snorkeling: 'Snorkeling 🤿',
-        nature: 'Nature excursions🌲',
-        villages: 'Tour of historic villages🏰',
-        workshop: 'Workshop ⚒️',
+        wine: 'Vine tasting',
+        boat: 'Boat day',
+        pasta: 'PastaClass',
+        snorkeling: 'Snorkeling',
+        nature: 'Nature excursions',
+        villages: 'Tour of historic villages',
+        workshop: 'Workshop',
         hotels: 'Stays in Top hotels',
         photos: 'Photos',
         group: 'Small group (10 people max)'
       },
       contact: {
-        title: 'Contact Us',
+        title: 'Send Inquiry',
         firstName: 'First Name',
         lastName: 'Last Name',
         firstNamePlaceholder: 'Enter your first name',
@@ -168,6 +169,13 @@ function getTranslations() {
         message: 'Additional Message',
         messagePlaceholder: 'Tell us about your travel preferences, special requests, or any questions you have...',
         submit: 'Send Inquiry'
+      },
+      contactInfo: {
+        title: 'Contact Us',
+        instagram: 'Instagram',
+        email: 'Email',
+        facebook: 'Facebook',
+        tiktok: 'TikTok'
       }
     },
     it: {
@@ -185,28 +193,29 @@ function getTranslations() {
         decision: 'Così abbiamo deciso di portare la Calabria al mondo nello stesso modo in cui Lorenzo l\'ha vissuta crescendo: attraverso gli occhi dei locali.',
         today: 'Oggi, stiamo trasformando quella visione in realtà — invitandoti a unirti a noi in un viaggio costruito su incontri genuini, pasti locali, angoli nascosti e il vero spirito del Sud Italia.',
         dream: 'Questo è il nostro sogno che diventa realtà, e saremmo davvero grati se tu ne facessi parte.',
-        welcome: 'Benvenuti — esploriamo insieme la Calabria, attraverso gli occhi dei locali.'
+        welcome: 'Benvenuti — esploriamo insieme la Calabria, attraverso gli occhi dei locali.',
+        photoQuote: 'Attraverso gli occhi dei locali'
       },
       trips: { 
         title: 'Servizi del Viaggio', 
-        itinerary: 'Itinerario di 6 giorni progettato da locali (5 notti) 🗺️',
-        driver: 'Autista privato durante tutte le fasi dell\'itinerario🚐',
+        itinerary: 'Itinerario di 6 giorni progettato da locali (5 notti)',
+        driver: 'Autista privato durante tutte le fasi dell\'itinerario',
         pension: 'Mezza pensione',
-        beaches: 'Spiaggia diversa ogni giorno 🏖️',
+        beaches: 'Spiaggia diversa ogni giorno',
         activitiesTitle: 'Attività in evidenza:',
-        wine: 'Degustazione di vino🍷',
-        boat: 'Giornata in barca🚤',
-        pasta: 'PastaClass🍝',
-        snorkeling: 'Snorkeling 🤿',
-        nature: 'Escursioni nella natura🌲',
-        villages: 'Tour dei villaggi storici🏰',
-        workshop: 'Laboratorio ⚒️',
+        wine: 'Degustazione di vino',
+        boat: 'Giornata in barca',
+        pasta: 'PastaClass',
+        snorkeling: 'Snorkeling',
+        nature: 'Escursioni nella natura',
+        villages: 'Tour dei villaggi storici',
+        workshop: 'Laboratorio',
         hotels: 'Soggiorni in hotel di lusso',
         photos: 'Foto',
         group: 'Piccolo gruppo (massimo 10 persone)'
       },
       contact: {
-        title: 'Contattaci',
+        title: 'Invia Richiesta',
         firstName: 'Nome',
         lastName: 'Cognome',
         firstNamePlaceholder: 'Inserisci il tuo nome',
@@ -228,6 +237,13 @@ function getTranslations() {
         message: 'Messaggio Aggiuntivo',
         messagePlaceholder: 'Raccontaci le tue preferenze di viaggio, richieste speciali o qualsiasi domanda tu abbia...',
         submit: 'Invia Richiesta'
+      },
+      contactInfo: {
+        title: 'Contattaci',
+        instagram: 'Instagram',
+        email: 'Email',
+        facebook: 'Facebook',
+        tiktok: 'TikTok'
       }
     },
     de: {
@@ -245,28 +261,29 @@ function getTranslations() {
         decision: 'Also beschlossen wir, Kalabrien der Welt auf die gleiche Weise zu bringen, wie Lorenzo es aufgewachsen ist: durch die Augen der Einheimischen.',
         today: 'Heute verwandeln wir diese Vision in Realität — laden Sie ein, uns auf einer Reise zu begleiten, die auf echten Begegnungen, lokalen Mahlzeiten, versteckten Ecken und dem wahren Geist Süditaliens aufbaut.',
         dream: 'Das ist unser Traum, der Wirklichkeit wird, und wir wären wirklich dankbar, wenn Sie ein Teil davon wären.',
-        welcome: 'Benvenuti — erkunden wir Kalabrien gemeinsam, durch die Augen der Einheimischen.'
+        welcome: 'Benvenuti — erkunden wir Kalabrien gemeinsam, durch die Augen der Einheimischen.',
+        photoQuote: 'Durch die Augen der Einheimischen'
       },
       trips: { 
         title: 'Reiseservices', 
-        itinerary: '6-tägige Route, entworfen von Einheimischen (5 Nächte) 🗺️',
-        driver: 'Privatfahrer während aller Etappen der Route🚐',
+        itinerary: '6-tägige Route, entworfen von Einheimischen (5 Nächte)',
+        driver: 'Privatfahrer während aller Etappen der Route',
         pension: 'Halbpension',
-        beaches: 'Jeden Tag ein anderer Strand 🏖️',
+        beaches: 'Jeden Tag ein anderer Strand',
         activitiesTitle: 'Aktivitäten-Highlights:',
-        wine: 'Weinverkostung🍷',
-        boat: 'Bootstag🚤',
-        pasta: 'PastaClass🍝',
-        snorkeling: 'Schnorcheln 🤿',
-        nature: 'Naturwanderungen🌲',
-        villages: 'Tour durch historische Dörfer🏰',
-        workshop: 'Workshop ⚒️',
+        wine: 'Weinverkostung',
+        boat: 'Bootstag',
+        pasta: 'PastaClass',
+        snorkeling: 'Schnorcheln',
+        nature: 'Naturwanderungen',
+        villages: 'Tour durch historische Dörfer',
+        workshop: 'Workshop',
         hotels: 'Aufenthalte in Top-Hotels',
         photos: 'Fotos',
         group: 'Kleine Gruppe (max. 10 Personen)'
       },
       contact: {
-        title: 'Kontaktieren Sie uns',
+        title: 'Anfrage senden',
         firstName: 'Vorname',
         lastName: 'Nachname',
         firstNamePlaceholder: 'Geben Sie Ihren Vornamen ein',
@@ -288,9 +305,16 @@ function getTranslations() {
         message: 'Zusätzliche Nachricht',
         messagePlaceholder: 'Erzählen Sie uns von Ihren Reisevorlieben, besonderen Wünschen oder Fragen...',
         submit: 'Anfrage senden'
+      },
+      contactInfo: {
+        title: 'Kontaktieren Sie uns',
+        instagram: 'Instagram',
+        email: 'E-Mail',
+        facebook: 'Facebook',
+        tiktok: 'TikTok'
       }
     },
-    cs: {
+    cz: {
       brand: 'Calabria Essence',
       nav: { why: 'Proč Kalábrie', about: 'O nás', trips: 'Informace o výletech', book: 'Rezervovat' },
       hero: { title: 'Objevte Kalábrii', subtitle: 'Poznejte Kalábrii očima místních' },
@@ -305,28 +329,29 @@ function getTranslations() {
         decision: 'Tak jsme se rozhodli přinést Kalábrii světu stejným způsobem, jakým ji Lorenzo zažíval, když vyrůstal: očima místních.',
         today: 'Dnes tuto vizi proměňujeme ve skutečnost — zveme vás, abyste se k nám připojili na cestě postavené na opravdových setkáních, místních jídlech, skrytých koutech a pravém duchu jižní Itálie.',
         dream: 'Toto je náš sen, který se stává skutečností, a byli bychom opravdu vděční, kdybyste byli jeho součástí.',
-        welcome: 'Benvenuti — objevme společně Kalábrii očima místních.'
+        welcome: 'Benvenuti — objevme společně Kalábrii očima místních.',
+        photoQuote: 'Očima místních'
       },
       trips: { 
         title: 'Služby výletu', 
-        itinerary: '6denní itinerář navržený místními (5 nocí) 🗺️',
-        driver: 'Soukromý řidič během všech fází itineráře🚐',
+        itinerary: '6denní itinerář navržený místními (5 nocí)',
+        driver: 'Soukromý řidič během všech fází itineráře',
         pension: 'Polopenze',
-        beaches: 'Každý den jiná pláž 🏖️',
+        beaches: 'Každý den jiná pláž',
         activitiesTitle: 'Aktivity v popředí:',
-        wine: 'Degustace vína🍷',
-        boat: 'Den na lodi🚤',
-        pasta: 'PastaClass🍝',
-        snorkeling: 'Šnorchlování 🤿',
-        nature: 'Výlety do přírody🌲',
-        villages: 'Prohlídka historických vesnic🏰',
-        workshop: 'Workshop ⚒️',
+        wine: 'Degustace vína',
+        boat: 'Den na lodi',
+        pasta: 'PastaClass',
+        snorkeling: 'Šnorchlování',
+        nature: 'Výlety do přírody',
+        villages: 'Prohlídka historických vesnic',
+        workshop: 'Workshop',
         hotels: 'Pobyt v top hotelech',
         photos: 'Fotky',
         group: 'Malá skupina (max. 10 osob)'
       },
       contact: {
-        title: 'Kontaktujte nás',
+        title: 'Odeslat dotaz',
         firstName: 'Jméno',
         lastName: 'Příjmení',
         firstNamePlaceholder: 'Zadejte své jméno',
@@ -348,6 +373,13 @@ function getTranslations() {
         message: 'Dodatečná zpráva',
         messagePlaceholder: 'Řekněte nám o svých cestovních preferencích, speciálních požadavcích nebo jakýchkoli otázkách...',
         submit: 'Odeslat dotaz'
+      },
+      contactInfo: {
+        title: 'Kontaktujte nás',
+        instagram: 'Instagram',
+        email: 'E-mail',
+        facebook: 'Facebook',
+        tiktok: 'TikTok'
       }
     }
   };

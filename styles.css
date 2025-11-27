@@ -45,12 +45,22 @@ body {
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(245,250,255,0.95); border-bottom-color: rgba(100,116,139,0.2); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
 
 
-.site-header .container,
-.site-footer .container {
+.site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 16px;
+}
+
+.site-footer .container {
+  padding: 24px 16px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .brand-container {
@@ -235,21 +245,44 @@ section {
 .card-food { background: url('food_section.JPG') center/cover no-repeat; }
 .card-culture { background: url('culture_section.JPG') center/cover no-repeat; }
 
-.grid.two { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 24px; 
-  align-items: start; 
-  margin-top: 0;
+.about-content {
+  position: relative;
+  overflow: hidden; /* Clearfix for floated elements */
 }
-.about-text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+
+.about-content::after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.about-text p {
+
+.about-content p {
   color: #0f172a;
+  margin-bottom: 16px;
+  text-align: justify;
+  line-height: 1.9;
+  hyphens: auto;
 }
+
+.about-photo { 
+  float: right;
+  width: 40%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  margin: 0 0 20px 24px;
+  border-radius: 12px; 
+  background: url('aboutus_section.jpg') 42% center/cover no-repeat, #e2e8f0;
+  shape-outside: border-box;
+  shape-margin: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.clear-float {
+  clear: right;
+}
+
 .about-list {
   list-style: none;
   padding-left: 0;
@@ -271,16 +304,54 @@ section {
   font-weight: bold;
   font-size: 1.2em;
 }
-.about-photo { 
-  height: 100%;
-  min-height: 280px;
-  border-radius: 12px; 
-  background: url('aboutus_section.jpg') 42% center/cover no-repeat, #e2e8f0;
-  align-self: center;
-  margin-top: -10px;
+
+/* Trip Services Section */
+#services {
+  position: relative;
+  background: url('tripservices_section.jpg') center/cover no-repeat;
+  overflow: hidden;
 }
 
-.services { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-left: 18px; }
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.5));
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services > * {
+  position: relative;
+  z-index: 1;
+}
+
+#services h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+#services h3 {
+  color: #ffffff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  font-size: 1.6em;
+}
+
+.services { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0,1fr)); 
+  gap: 14px; 
+  padding-left: 18px;
+  color: #ffffff;
+  font-size: 1.25em;
+}
+
+.services li {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-size: 1.2em;
+  line-height: 1.7;
+}
+
 .trips-content {
   display: flex;
   flex-direction: column;
@@ -502,6 +573,50 @@ section {
   opacity: 0.9;
 }
 
+/* Social Links - Circular Icon Buttons */
+.social-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(30, 58, 138, 0.8);
+  backdrop-filter: blur(8px);
+  border: none;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(30, 58, 138, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-text {
+  display: none;
+}
+
 /* Mobile Phone Optimization */
 @media (max-width: 768px) {
   /* Header adjustments for mobile */
@@ -570,14 +685,15 @@ section {
   }
   
   /* About section mobile */
-  .grid.two {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .about-photo {
+    float: none;
+    width: 100%;
+    height: 250px;
+    margin: 0 0 20px 0;
   }
   
-  .about-photo {
-    min-height: 200px;
-    height: auto;
+  .about-content p {
+    text-align: left;
   }
   
   /* Services mobile */
@@ -655,6 +771,20 @@ section {
   
   section {
     padding: 16px;
+  }
+  
+  .social-links {
+    gap: 10px;
+  }
+  
+  .social-link {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .social-icon {
+    width: 22px;
+    height: 22px;
   }
   
   .form {
