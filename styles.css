@@ -66,9 +66,13 @@ body {
   gap: 12px;
 }
 .brand:hover { text-decoration: none; }
+.brand span {
+  font-size: 24px;
+  font-weight: 600;
+}
 
 .logo {
-  height: 50px;
+  height: 85px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -79,13 +83,9 @@ body {
   padding: 32px 16px 64px;
 }
 
-h1, h2, h3 {
+h2, h3 {
   line-height: 1.25;
   margin: 0 0 12px;
-}
-
-h1 {
-  font-size: clamp(24px, 2.6vw, 36px);
 }
 
 h2 {
@@ -130,7 +130,9 @@ section {
 
 .site-nav a {
   margin-right: 12px;
-  color: var(--text);
+  color: #1e3a8a;
+  font-size: 17px;
+  font-weight: 500;
 }
 .site-nav a.button { margin-right: 0; }
 
@@ -214,12 +216,24 @@ section {
   color: #ffffff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   font-size: clamp(20px, 2.5vw, 28px);
-  margin: 0;
+  margin: 0 0 12px 0;
   text-align: center;
 }
-.card-beach { background: url('main_background.jpg') center/cover no-repeat; }
-.card-food { background: url('main_background.jpg') center/cover no-repeat; }
-.card-culture { background: url('main_background.jpg') center/cover no-repeat; }
+.card-media .card-desc {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-size: clamp(14px, 1.5vw, 18px);
+  margin: 0;
+  text-align: center;
+  padding: 0 16px;
+  max-width: 90%;
+  line-height: 1.4;
+}
+.card-beach { background: url('beach_section.JPG') center/cover no-repeat; }
+.card-food { background: url('food_section.JPG') center/cover no-repeat; }
+.card-culture { background: url('culture_section.JPG') center/cover no-repeat; }
 
 .grid.two { 
   display: grid; 
@@ -232,6 +246,9 @@ section {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+.about-text p {
+  color: #0f172a;
 }
 .about-list {
   list-style: none;
@@ -258,12 +275,25 @@ section {
   height: 100%;
   min-height: 280px;
   border-radius: 12px; 
-  background: url('AboutUs_Section.jpg') center/cover no-repeat, #e2e8f0;
-  align-self: start;
-  margin-top: -40px;
+  background: url('aboutus_section.jpg') 42% center/cover no-repeat, #e2e8f0;
+  align-self: center;
+  margin-top: -10px;
 }
 
 .services { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; padding-left: 18px; }
+.trips-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.trips-content h3 {
+  margin: 20px 0 10px 0;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--text);
+}
+.trips-content .activities {
+  margin-bottom: 10px;
+}
 
 
 /* Contact Form Styles */
@@ -472,14 +502,6 @@ section {
   opacity: 0.9;
 }
 
-/* Buttons */
-.button.ghost {
-  background: transparent;
-  box-shadow: none;
-  border: 1px solid rgba(100,116,139,0.35);
-  color: var(--text);
-}
-
 /* Mobile Phone Optimization */
 @media (max-width: 768px) {
   /* Header adjustments for mobile */
@@ -490,7 +512,7 @@ section {
   }
   
   .logo {
-    height: 40px;
+    height: 60px;
   }
   
   .brand span {

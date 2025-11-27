@@ -113,11 +113,38 @@ function getTranslations() {
     en: {
       brand: 'Calabria Essence',
       nav: { why: 'Why Calabria', about: 'About Us', trips: 'Trips Information', book: 'Book / Reserve' },
-      hero: { title: 'Explore Calabria', subtitle: 'From sea to mountains, culture and cuisine.' },
-      why: { title: 'Why Calabria?', beach: 'Beaches', beach_desc: 'Crystal seas and hidden coves.', food: 'Food', food_desc: 'Spicy, authentic, unforgettable.', culture: 'Culture', culture_desc: 'Traditions carved by time.' },
-      about: { title: 'About Us', text: 'Tours crafted by locals who love Calabria.', text2: 'Local experts born and raised in Calabria', text3: 'Years of experience showing travelers our beautiful region', text4: 'Fluent in multiple languages for your comfort', text5: 'Dedicated to creating memorable experiences for every guest', text6: 'Committed to sustainable and responsible tourism' },
-      trips: { title: 'Trips Information (Our Service)', transfer: 'Airport transfers', wine: 'Vineyard visits', driver: 'Private driver', culinary: 'Culinary workshops' },
-      cta: { book: 'Book Now' },
+      hero: { title: 'Explore Calabria', subtitle: 'Experience Calabria through local\'s eyes' },
+      why: { title: 'Why Calabria?', beach: 'Beaches', beach_desc: 'Immerse yourself in Calabria\'s stunning coastline, where untouched beaches meet crystal-clear waters.', food: 'Food', food_desc: 'Prepare your appetite — Calabria\'s deliciousness is a full-time job!', culture: 'Culture', culture_desc: 'Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.' },
+      about: { 
+        title: 'About Us', 
+        intro: 'Ciao & Ahoj! We\'re Lorenzo and Kristýna — an Italian–Czech couple who met, fell in love, and spent the last three years exploring the world together.',
+        lorenzo: 'Lorenzo is the heartbeat of Calabria in our project — born and raised in Cosenza, with a childhood full of seaside summers, family recipes, and local stories.',
+        kristyna: 'Kristýna comes from vibrant Prague and brings the curiosity, creativity, and traveler\'s instinct that always pushes us to look beyond the "usual" and discover the real soul of every place we visit.',
+        travels: 'On our travels, something kept happening: no matter where we went, Lorenzo always ended up comparing everything to his home. Not because other places weren\'t beautiful — but because he realized how special Calabria truly is. The traditions, the flavours, the warmth of the people, the natural beauty… and the way locals experience their land every single day.',
+        idea: 'That\'s when the idea was born. We wanted to create the kind of travel experience we always search for ourselves — one that lets you see a destination through the eyes of its people. Authentic restaurants recommended by locals. Beaches you reach by asking someone\'s nonno. Stories, recipes, and little discoveries that don\'t appear in any brochure.',
+        decision: 'So we decided to bring Calabria to the world the same way Lorenzo grew up experiencing it: through the local\'s eyes.',
+        today: 'Today, we\'re turning that vision into reality — inviting you to join us on a journey built on genuine encounters, local meals, hidden corners, and the true spirit of Southern Italy.',
+        dream: 'This is our dream becoming real, and we\'d be genuinely grateful to have you be a part of it.',
+        welcome: 'Benvenuti — let\'s explore Calabria together, through the eyes of the locals.'
+      },
+      trips: { 
+        title: 'Trip Services', 
+        itinerary: '6-day itinerary designed by locals (5night) 🗺️',
+        driver: 'Private driver during all stages of the itinerary🚐',
+        pension: 'Half pension',
+        beaches: 'Different beach every day 🏖️',
+        activitiesTitle: 'Activities highlights:',
+        wine: 'Vine tasting🍷',
+        boat: 'Boat day🚤',
+        pasta: 'PastaClass🍝',
+        snorkeling: 'Snorkeling 🤿',
+        nature: 'Nature excursions🌲',
+        villages: 'Tour of historic villages🏰',
+        workshop: 'Workshop ⚒️',
+        hotels: 'Stays in Top hotels',
+        photos: 'Photos',
+        group: 'Small group (10 people max)'
+      },
       contact: {
         title: 'Contact Us',
         firstName: 'First Name',
@@ -146,11 +173,38 @@ function getTranslations() {
     it: {
       brand: 'Calabria Essence',
       nav: { why: 'Perché Calabria', about: 'Chi siamo', trips: 'Informazioni Viaggi', book: 'Prenota / Riserva' },
-      hero: { title: 'Esplora la Calabria', subtitle: 'Dal mare alle montagne, cultura e cucina.' },
-      why: { title: 'Perché Calabria?', beach: 'Spiagge', beach_desc: 'Mare cristallino e calette nascoste.', food: 'Cibo', food_desc: 'Piccante, autentico, indimenticabile.', culture: 'Cultura', culture_desc: 'Tradizioni scolpite dal tempo.' },
-      about: { title: 'Chi siamo', text: 'Tour creati da locali che amano la Calabria.', text2: 'Esperti locali nati e cresciuti in Calabria', text3: 'Anni di esperienza nel mostrare ai viaggiatori la nostra bellissima regione', text4: 'Fluenti in più lingue per il tuo comfort', text5: 'Dedicati a creare esperienze memorabili per ogni ospite', text6: 'Impegnati nel turismo sostenibile e responsabile' },
-      trips: { title: 'Informazioni sui Viaggi (I nostri servizi)', transfer: 'Transfer da/per aeroporto', wine: 'Visite in cantina', driver: 'Autista privato', culinary: 'Laboratori di cucina' },
-      cta: { book: 'Prenota Ora' },
+      hero: { title: 'Esplora la Calabria', subtitle: 'Vivi la Calabria attraverso gli occhi dei locali' },
+      why: { title: 'Perché Calabria?', beach: 'Spiagge', beach_desc: 'Immergiti nella splendida costa calabrese, dove spiagge incontaminate incontrano acque cristalline.', food: 'Cibo', food_desc: 'Prepara il tuo appetito — la delizia della Calabria è un lavoro a tempo pieno!', culture: 'Cultura', culture_desc: 'Esplora secoli di ricco patrimonio, dalle antiche rovine alle vivaci tradizioni locali.' },
+      about: { 
+        title: 'Chi siamo', 
+        intro: 'Ciao & Ahoj! Siamo Lorenzo e Kristýna — una coppia italo-ceca che si è incontrata, si è innamorata e ha trascorso gli ultimi tre anni esplorando il mondo insieme.',
+        lorenzo: 'Lorenzo è il cuore pulsante della Calabria nel nostro progetto — nato e cresciuto a Cosenza, con un\'infanzia piena di estati al mare, ricette di famiglia e storie locali.',
+        kristyna: 'Kristýna viene dalla vibrante Praga e porta con sé la curiosità, la creatività e l\'istinto del viaggiatore che ci spinge sempre a guardare oltre il "solito" e a scoprire l\'anima vera di ogni luogo che visitiamo.',
+        travels: 'Durante i nostri viaggi, qualcosa continuava ad accadere: ovunque andassimo, Lorenzo finiva sempre per confrontare tutto con la sua casa. Non perché altri posti non fossero belli — ma perché si è reso conto di quanto sia speciale la Calabria. Le tradizioni, i sapori, il calore delle persone, la bellezza naturale… e il modo in cui i locali vivono la loro terra ogni singolo giorno.',
+        idea: 'È allora che è nata l\'idea. Volevamo creare il tipo di esperienza di viaggio che cerchiamo sempre noi stessi — una che ti permetta di vedere una destinazione attraverso gli occhi della sua gente. Ristoranti autentici consigliati dai locali. Spiagge che raggiungi chiedendo al nonno di qualcuno. Storie, ricette e piccole scoperte che non compaiono in nessuna brochure.',
+        decision: 'Così abbiamo deciso di portare la Calabria al mondo nello stesso modo in cui Lorenzo l\'ha vissuta crescendo: attraverso gli occhi dei locali.',
+        today: 'Oggi, stiamo trasformando quella visione in realtà — invitandoti a unirti a noi in un viaggio costruito su incontri genuini, pasti locali, angoli nascosti e il vero spirito del Sud Italia.',
+        dream: 'Questo è il nostro sogno che diventa realtà, e saremmo davvero grati se tu ne facessi parte.',
+        welcome: 'Benvenuti — esploriamo insieme la Calabria, attraverso gli occhi dei locali.'
+      },
+      trips: { 
+        title: 'Servizi del Viaggio', 
+        itinerary: 'Itinerario di 6 giorni progettato da locali (5 notti) 🗺️',
+        driver: 'Autista privato durante tutte le fasi dell\'itinerario🚐',
+        pension: 'Mezza pensione',
+        beaches: 'Spiaggia diversa ogni giorno 🏖️',
+        activitiesTitle: 'Attività in evidenza:',
+        wine: 'Degustazione di vino🍷',
+        boat: 'Giornata in barca🚤',
+        pasta: 'PastaClass🍝',
+        snorkeling: 'Snorkeling 🤿',
+        nature: 'Escursioni nella natura🌲',
+        villages: 'Tour dei villaggi storici🏰',
+        workshop: 'Laboratorio ⚒️',
+        hotels: 'Soggiorni in hotel di lusso',
+        photos: 'Foto',
+        group: 'Piccolo gruppo (massimo 10 persone)'
+      },
       contact: {
         title: 'Contattaci',
         firstName: 'Nome',
@@ -179,11 +233,38 @@ function getTranslations() {
     de: {
       brand: 'Calabria Essence',
       nav: { why: 'Warum Kalabrien', about: 'Über uns', trips: 'Reiseinformationen', book: 'Buchen / Reservieren' },
-      hero: { title: 'Kalabrien entdecken', subtitle: 'Vom Meer zu den Bergen, Kultur und Küche.' },
-      why: { title: 'Warum Kalabrien?', beach: 'Strände', beach_desc: 'Kristallklares Meer und versteckte Buchten.', food: 'Essen', food_desc: 'Würzig, authentisch, unvergesslich.', culture: 'Kultur', culture_desc: 'Traditionen, vom Lauf der Zeit geformt.' },
-      about: { title: 'Über uns', text: 'Touren von Einheimischen, die Kalabrien lieben.', text2: 'Lokale Experten, geboren und aufgewachsen in Kalabrien', text3: 'Jahrelange Erfahrung darin, Reisenden unsere schöne Region zu zeigen', text4: 'Mehrsprachig für Ihren Komfort', text5: 'Bemüht, unvergessliche Erlebnisse für jeden Gast zu schaffen', text6: 'Verpflichtet zu nachhaltigem und verantwortungsvollem Tourismus' },
-      trips: { title: 'Reiseinformationen (Unser Service)', transfer: 'Flughafentransfers', wine: 'Weingutbesuche', driver: 'Privatfahrer', culinary: 'Kochworkshops' },
-      cta: { book: 'Jetzt Buchen' },
+      hero: { title: 'Kalabrien entdecken', subtitle: 'Erleben Sie Kalabrien durch die Augen der Einheimischen' },
+      why: { title: 'Warum Kalabrien?', beach: 'Strände', beach_desc: 'Tauchen Sie ein in Kalabriens atemberaubende Küste, wo unberührte Strände auf kristallklares Wasser treffen.', food: 'Essen', food_desc: 'Bereiten Sie Ihren Appetit vor — Kalabriens Köstlichkeiten sind ein Vollzeitjob!', culture: 'Kultur', culture_desc: 'Erkunden Sie jahrhundertealtes reiches Erbe, von antiken Ruinen bis zu lebendigen lokalen Traditionen.' },
+      about: { 
+        title: 'Über uns', 
+        intro: 'Ciao & Ahoj! Wir sind Lorenzo und Kristýna — ein italienisch-tschechisches Paar, das sich traf, sich verliebte und die letzten drei Jahre damit verbrachte, die Welt gemeinsam zu erkunden.',
+        lorenzo: 'Lorenzo ist der Herzschlag Kalabriens in unserem Projekt — geboren und aufgewachsen in Cosenza, mit einer Kindheit voller Sommer am Meer, Familienrezepten und lokalen Geschichten.',
+        kristyna: 'Kristýna kommt aus dem lebendigen Prag und bringt die Neugier, Kreativität und den Instinkt des Reisenden mit, der uns immer dazu drängt, über das "Übliche" hinauszuschauen und die wahre Seele jedes Ortes zu entdecken, den wir besuchen.',
+        travels: 'Auf unseren Reisen passierte immer wieder etwas: Egal wohin wir gingen, Lorenzo verglich immer alles mit seiner Heimat. Nicht weil andere Orte nicht schön waren — sondern weil er erkannte, wie besonders Kalabrien wirklich ist. Die Traditionen, die Aromen, die Wärme der Menschen, die natürliche Schönheit… und die Art, wie Einheimische ihr Land jeden einzelnen Tag erleben.',
+        idea: 'Da wurde die Idee geboren. Wir wollten die Art von Reiseerfahrung schaffen, die wir selbst immer suchen — eine, die es Ihnen ermöglicht, ein Reiseziel durch die Augen seiner Menschen zu sehen. Authentische Restaurants, die von Einheimischen empfohlen werden. Strände, die Sie erreichen, indem Sie jemandes Nonno fragen. Geschichten, Rezepte und kleine Entdeckungen, die in keiner Broschüre erscheinen.',
+        decision: 'Also beschlossen wir, Kalabrien der Welt auf die gleiche Weise zu bringen, wie Lorenzo es aufgewachsen ist: durch die Augen der Einheimischen.',
+        today: 'Heute verwandeln wir diese Vision in Realität — laden Sie ein, uns auf einer Reise zu begleiten, die auf echten Begegnungen, lokalen Mahlzeiten, versteckten Ecken und dem wahren Geist Süditaliens aufbaut.',
+        dream: 'Das ist unser Traum, der Wirklichkeit wird, und wir wären wirklich dankbar, wenn Sie ein Teil davon wären.',
+        welcome: 'Benvenuti — erkunden wir Kalabrien gemeinsam, durch die Augen der Einheimischen.'
+      },
+      trips: { 
+        title: 'Reiseservices', 
+        itinerary: '6-tägige Route, entworfen von Einheimischen (5 Nächte) 🗺️',
+        driver: 'Privatfahrer während aller Etappen der Route🚐',
+        pension: 'Halbpension',
+        beaches: 'Jeden Tag ein anderer Strand 🏖️',
+        activitiesTitle: 'Aktivitäten-Highlights:',
+        wine: 'Weinverkostung🍷',
+        boat: 'Bootstag🚤',
+        pasta: 'PastaClass🍝',
+        snorkeling: 'Schnorcheln 🤿',
+        nature: 'Naturwanderungen🌲',
+        villages: 'Tour durch historische Dörfer🏰',
+        workshop: 'Workshop ⚒️',
+        hotels: 'Aufenthalte in Top-Hotels',
+        photos: 'Fotos',
+        group: 'Kleine Gruppe (max. 10 Personen)'
+      },
       contact: {
         title: 'Kontaktieren Sie uns',
         firstName: 'Vorname',
@@ -212,11 +293,38 @@ function getTranslations() {
     cs: {
       brand: 'Calabria Essence',
       nav: { why: 'Proč Kalábrie', about: 'O nás', trips: 'Informace o výletech', book: 'Rezervovat' },
-      hero: { title: 'Objevte Kalábrii', subtitle: 'Od moře k horám, kultura a kuchyně.' },
-      why: { title: 'Proč Kalábrie?', beach: 'Pláže', beach_desc: 'Křišťálové moře a skryté zátoky.', food: 'Jídlo', food_desc: 'Pikantní, autentické, nezapomenutelné.', culture: 'Kultura', culture_desc: 'Tradice vyryté časem.' },
-      about: { title: 'O nás', text: 'Výlety vytvořené místními, kteří milují Kalábrii.', text2: 'Místní odborníci narození a vychovaní v Kalábrii', text3: 'Roky zkušeností s představováním našeho krásného regionu cestovatelům', text4: 'Plynně mluvíme několika jazyky pro váš komfort', text5: 'Oddaní vytváření nezapomenutelných zážitků pro každého hosta', text6: 'Zavázáni k udržitelnému a odpovědnému cestovnímu ruchu' },
-      trips: { title: 'Informace o výletech (Naše služby)', transfer: 'Transfery z/na letiště', wine: 'Návštěvy vinařství', driver: 'Soukromý řidič', culinary: 'Kulinářské workshopy' },
-      cta: { book: 'Rezervovat Nyní' },
+      hero: { title: 'Objevte Kalábrii', subtitle: 'Poznejte Kalábrii očima místních' },
+      why: { title: 'Proč Kalábrie?', beach: 'Pláže', beach_desc: 'Ponořte se do úchvatného pobřeží Kalábrie, kde nedotčené pláže splývají s křišťálově čistou vodou.', food: 'Jídlo', food_desc: 'Připravte si chuť k jídlu — lahodnost Kalábrie je práce na plný úvazek!', culture: 'Kultura', culture_desc: 'Objevte staletí bohatého dědictví, od starověkých ruin po živé místní tradice.' },
+      about: { 
+        title: 'O nás', 
+        intro: 'Ciao & Ahoj! Jsme Lorenzo a Kristýna — italsko-český pár, který se potkal, zamiloval se a strávil poslední tři roky objevováním světa společně.',
+        lorenzo: 'Lorenzo je srdcem Kalábrie v našem projektu — narodil se a vyrostl v Cosenze, s dětstvím plným letních pobytů u moře, rodinných receptů a místních příběhů.',
+        kristyna: 'Kristýna pochází z živé Prahy a přináší zvědavost, kreativitu a cestovatelský instinkt, který nás vždy nutí dívat se za "obvyklé" a objevovat skutečnou duši každého místa, které navštívíme.',
+        travels: 'Během našich cest se stále něco dělo: ať jsme šli kamkoli, Lorenzo vždy všechno srovnával se svým domovem. Ne proto, že by jiná místa nebyla krásná — ale proto, že si uvědomil, jak zvláštní Kalábrie skutečně je. Tradice, chutě, teplo lidí, přírodní krása… a způsob, jakým místní prožívají svou zemi každý den.',
+        idea: 'Tehdy se zrodil nápad. Chtěli jsme vytvořit takový typ cestovatelské zkušenosti, jaký vždy hledáme sami — takový, který vám umožní vidět destinaci očima jejích lidí. Autentické restaurace doporučené místními. Pláže, na které se dostanete, když se zeptáte něčího nonna. Příběhy, recepty a malé objevy, které se neobjevují v žádné brožuře.',
+        decision: 'Tak jsme se rozhodli přinést Kalábrii světu stejným způsobem, jakým ji Lorenzo zažíval, když vyrůstal: očima místních.',
+        today: 'Dnes tuto vizi proměňujeme ve skutečnost — zveme vás, abyste se k nám připojili na cestě postavené na opravdových setkáních, místních jídlech, skrytých koutech a pravém duchu jižní Itálie.',
+        dream: 'Toto je náš sen, který se stává skutečností, a byli bychom opravdu vděční, kdybyste byli jeho součástí.',
+        welcome: 'Benvenuti — objevme společně Kalábrii očima místních.'
+      },
+      trips: { 
+        title: 'Služby výletu', 
+        itinerary: '6denní itinerář navržený místními (5 nocí) 🗺️',
+        driver: 'Soukromý řidič během všech fází itineráře🚐',
+        pension: 'Polopenze',
+        beaches: 'Každý den jiná pláž 🏖️',
+        activitiesTitle: 'Aktivity v popředí:',
+        wine: 'Degustace vína🍷',
+        boat: 'Den na lodi🚤',
+        pasta: 'PastaClass🍝',
+        snorkeling: 'Šnorchlování 🤿',
+        nature: 'Výlety do přírody🌲',
+        villages: 'Prohlídka historických vesnic🏰',
+        workshop: 'Workshop ⚒️',
+        hotels: 'Pobyt v top hotelech',
+        photos: 'Fotky',
+        group: 'Malá skupina (max. 10 osob)'
+      },
       contact: {
         title: 'Kontaktujte nás',
         firstName: 'Jméno',
@@ -231,7 +339,7 @@ function getTranslations() {
         fivePlusTravellers: '5+ cestujících',
         explainInMessage: 'Vysvětlím v dodatečné zprávě',
         email: 'E-mailová adresa',
-        emailPlaceholder: 'vas.email@priklad.cz',
+        emailPlaceholder: 'váš.email@příklad.cz',
         phone: 'Telefonní číslo',
         phonePlaceholder: '+1234567890 nebo (123) 456-7890',
         preferredContact: 'Preferovaný způsob kontaktu',
@@ -449,11 +557,6 @@ function handleFormSubmit(e) {
   // Get current language and select appropriate template
   const currentLang = getCurrentLanguage();
   const templateId = EMAILJS_CONFIG.templates[currentLang] || EMAILJS_CONFIG.templates.en;
-  
-  // Debug: Log the language and template being used
-  console.log('Current language:', currentLang);
-  console.log('Template ID:', templateId);
-  console.log('Available templates:', EMAILJS_CONFIG.templates);
   
   // Prepare email data
   const emailData = {
