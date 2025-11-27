@@ -692,6 +692,9 @@ section {
   .hero {
     min-height: 300px;
     margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .hero h2 {
@@ -713,6 +716,17 @@ section {
   .card-media {
     height: 180px;
     min-height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .card-beach,
+  .card-food,
+  .card-culture {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .card-media h3 {
@@ -733,6 +747,9 @@ section {
     aspect-ratio: 3 / 4;
     min-height: 300px;
     margin: 0 0 24px 0;
+    background-size: cover;
+    background-position: 42% center;
+    background-repeat: no-repeat;
   }
   
   .about-content p {
@@ -743,6 +760,7 @@ section {
   #services {
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
     min-height: auto;
   }
   
@@ -773,6 +791,9 @@ section {
   
   .contact-form {
     padding: 20px 16px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .form-group input,
