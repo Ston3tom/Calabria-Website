@@ -27,7 +27,10 @@
         </div>
         <nav class="site-nav" aria-label="Primary">
           <a href="#why" data-i18n="nav.why">Why Calabria</a>
-          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="beaches.html" data-i18n="nav.beaches">Beaches</a>
+          <a href="food.html" data-i18n="nav.food">Food</a>
+          <a href="culture.html" data-i18n="nav.culture">Culture</a>
           <a href="#services" data-i18n="nav.trips">Trips Information</a>
           <a href="#contact" class="button" data-i18n="nav.book">Book / Reserve</a>
         </nav>
@@ -47,40 +50,44 @@
           <h2 data-i18n="why.title">Why Calabria?</h2>
           <div class="cards">
             <article class="card">
-              <div class="card-media card-beach">
-                <h3 data-i18n="why.beach">Beaches</h3>
-                <p class="card-desc" data-i18n="why.beach_desc">Immerse yourself in Calabria's stunning coastline, where untouched beaches meet crystal-clear waters.</p>
-              </div>
+              <a href="beaches.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card-media card-beach">
+                  <h3 data-i18n="why.beach">Beaches</h3>
+                  <p class="card-desc" data-i18n="why.beach_desc">Immerse yourself in Calabria's stunning coastline, where untouched beaches meet crystal-clear waters.</p>
+                </div>
+              </a>
             </article>
             <article class="card">
-              <div class="card-media card-food">
-                <h3 data-i18n="why.food">Food</h3>
-                <p class="card-desc" data-i18n="why.food_desc">Prepare your appetite — Calabria's deliciousness is a full-time job!</p>
-              </div>
+              <a href="food.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card-media card-food">
+                  <h3 data-i18n="why.food">Food</h3>
+                  <p class="card-desc" data-i18n="why.food_desc">Prepare your appetite — Calabria's deliciousness is a full-time job!</p>
+                </div>
+              </a>
             </article>
             <article class="card">
-              <div class="card-media card-culture">
-                <h3 data-i18n="why.culture">Culture</h3>
-                <p class="card-desc" data-i18n="why.culture_desc">Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.</p>
-              </div>
+              <a href="culture.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card-media card-culture">
+                  <h3 data-i18n="why.culture">Culture</h3>
+                  <p class="card-desc" data-i18n="why.culture_desc">Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.</p>
+                </div>
+              </a>
             </article>
           </div>
         </section>
 
         <section id="about">
           <h2 data-i18n="about.title">About Us</h2>
-          <div class="about-content">
-            <div class="about-photo" aria-label="About us photo"></div>
-            <p data-i18n="about.intro">Ciao & Ahoj! We're Lorenzo and Kristýna — an Italian–Czech couple who met, fell in love, and spent the last three years exploring the world together.</p>
-            <p data-i18n="about.lorenzo">Lorenzo is the heartbeat of Calabria in our project — born and raised in Cosenza, with a childhood full of seaside summers, family recipes, and local stories.</p>
-            <p data-i18n="about.kristyna">Kristýna comes from vibrant Prague and brings the curiosity, creativity, and traveler's instinct that always pushes us to look beyond the "usual" and discover the real soul of every place we visit.</p>
-            <p data-i18n="about.travels">On our travels, something kept happening: no matter where we went, Lorenzo always ended up comparing everything to his home. Not because other places weren't beautiful — but because he realized how special Calabria truly is. The traditions, the flavours, the warmth of the people, the natural beauty… and the way locals experience their land every single day.</p>
-            <p data-i18n="about.idea">That's when the idea was born. We wanted to create the kind of travel experience we always search for ourselves — one that lets you see a destination through the eyes of its people. Authentic restaurants recommended by locals. Beaches you reach by asking someone's nonno. Stories, recipes, and little discoveries that don't appear in any brochure.</p>
-            <p class="clear-float" data-i18n="about.decision">So we decided to bring Calabria to the world the same way Lorenzo grew up experiencing it: through the local's eyes.</p>
-            <p data-i18n="about.today">Today, we're turning that vision into reality — inviting you to join us on a journey built on genuine encounters, local meals, hidden corners, and the true spirit of Southern Italy.</p>
-            <p data-i18n="about.dream">This is our dream becoming real, and we'd be genuinely grateful to have you be a part of it.</p>
-            <p data-i18n="about.welcome">Benvenuti — let's explore Calabria together, through the eyes of the locals.</p>
-          </div>
+          <a href="about.html" class="about-window">
+            <div class="about-window-content">
+              <div class="about-window-photo"></div>
+              <div class="about-window-text">
+                <h3 data-i18n="about.previewTitle">Meet Lorenzo & Kristýna</h3>
+                <p data-i18n="about.previewText">An Italian–Czech couple bringing you authentic Calabria experiences through local's eyes.</p>
+                <span class="about-window-link" data-i18n="about.clickToRead">Click to read our full story →</span>
+              </div>
+            </div>
+          </a>
         </section>
 
         <section id="services">
@@ -137,6 +144,31 @@
             </div>
             
             <div class="form-group">
+              <label for="tripPeriod" data-i18n="contact.tripPeriod">Select Trip Period *</label>
+              <select id="tripPeriod" name="tripPeriod" required>
+                <option value="" data-i18n="contact.selectPeriod">-- Select a trip period --</option>
+                <optgroup label="May - June" data-i18n-label="contact.mayJune">
+                  <option value="2025-05-29_2025-06-03" data-i18n="contact.period1">May 29 - June 3, 2025</option>
+                </optgroup>
+                <optgroup label="June" data-i18n-label="contact.june">
+                  <option value="2025-06-05_2025-06-10" data-i18n="contact.period2">June 5-10, 2025</option>
+                  <option value="2025-06-12_2025-06-17" data-i18n="contact.period3">June 12-17, 2025</option>
+                  <option value="2025-06-19_2025-06-24" data-i18n="contact.period4">June 19-24, 2025</option>
+                  <option value="2025-06-26_2025-07-01" data-i18n="contact.period5">June 26 - July 1, 2025</option>
+                </optgroup>
+                <optgroup label="July" data-i18n-label="contact.july">
+                  <option value="2025-07-03_2025-07-08" data-i18n="contact.period6">July 3-8, 2025</option>
+                  <option value="2025-07-10_2025-07-15" data-i18n="contact.period7">July 10-15, 2025</option>
+                  <option value="2025-07-17_2025-07-22" data-i18n="contact.period8">July 17-22, 2025</option>
+                  <option value="2025-07-24_2025-07-29" data-i18n="contact.period9">July 24-29, 2025</option>
+                </optgroup>
+              </select>
+              <input type="hidden" id="tripDateStart" name="tripDateStart">
+              <input type="hidden" id="tripDateEnd" name="tripDateEnd">
+              <small class="date-hint" data-i18n="contact.dateHint">Choose from available trip periods</small>
+            </div>
+            
+            <div class="form-group">
               <label for="email" data-i18n="contact.email">Email Address *</label>
               <input type="email" id="email" name="email" required placeholder="" data-i18n-placeholder="contact.emailPlaceholder">
             </div>
@@ -163,6 +195,12 @@
             <div class="form-group">
               <label for="message" data-i18n="contact.message">Additional Message</label>
               <textarea id="message" name="message" rows="4" placeholder="" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="discountCode" data-i18n="contact.discountCode">Discount Code (Optional)</label>
+              <input type="text" id="discountCode" name="discountCode" placeholder="" data-i18n-placeholder="contact.discountCodePlaceholder">
+              <small class="discount-hint" data-i18n="contact.discountHint">Enter your discount code if you have one</small>
             </div>
             
             <button type="submit" class="button" data-i18n="contact.submit">Send Inquiry</button>
@@ -196,7 +234,7 @@
               </svg>
             </a>
           </div>
-          <p>&copy; 2025 Kristýna Zouzalová/Lorenzo Mazzei. All rights reserved.</p>
+          <p>&copy; 2026 Kristýna Zouzalová/Lorenzo Mazzei. All rights reserved.</p>
         </div>
       </div>
     </footer>

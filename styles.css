@@ -141,6 +141,12 @@ section {
   margin-bottom: 24px;
 }
 
+section#about {
+  background: linear-gradient(180deg, rgba(245,250,255,0.9) 0%, rgba(219,234,254,0.6) 100%);
+  border: 1px solid rgba(59,130,246,0.2);
+  box-shadow: 0 10px 30px rgba(59,130,246,0.1);
+}
+
 .site-nav a {
   margin-right: 12px;
   color: #1e3a8a;
@@ -192,6 +198,32 @@ section {
   z-index: 1;
   padding: 20px;
 }
+
+/* Hero text slide-up animation - first load only */
+.hero-content.animate-on-load h2,
+.hero-content.animate-on-load p {
+  opacity: 0;
+}
+
+.hero-content.animate-on-load h2 {
+  animation: slideUpFromBottom 1.2s ease-out 0.2s both;
+}
+
+.hero-content.animate-on-load p {
+  animation: slideUpFromBottom 1.2s ease-out 0.4s both;
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero h2 { 
   font-size: clamp(28px, 4vw, 48px); 
   color: #ffffff;
@@ -206,7 +238,32 @@ section {
 }
 
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.card { padding: 0; overflow: hidden; }
+.card { padding: 0; overflow: hidden; transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease; }
+
+/* Why Calabria section animation states */
+#why.animating .card {
+  pointer-events: none;
+}
+
+#why.animating .card:not(.focus) {
+  opacity: 0.3;
+  filter: blur(2px);
+  transform: scale(0.95);
+}
+
+#why.animating .card.focus {
+  transform: scale(1.1);
+  z-index: 10;
+  position: relative;
+  opacity: 1;
+  filter: blur(0);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+#why.animating .card.focus .card-media {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
 .card-media { 
   height: 200px; 
   background: #e2e8f0;
@@ -284,6 +341,108 @@ section {
 
 .clear-float {
   clear: right;
+}
+
+/* About Window - Clickable Card */
+.about-window {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.about-window:hover {
+  transform: translateY(-4px);
+  text-decoration: none;
+}
+
+.about-window-content {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(14,165,233,0.15) 50%, rgba(59,130,246,0.1) 100%);
+  border: 2px solid rgba(59,130,246,0.3);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(59,130,246,0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-window:hover .about-window-content {
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: 0 12px 32px rgba(59,130,246,0.25);
+  background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(14,165,233,0.2) 50%, rgba(59,130,246,0.15) 100%);
+}
+
+.about-window-photo {
+  width: 200px;
+  height: 250px;
+  min-width: 200px;
+  border-radius: 12px;
+  background: url('aboutus_section.jpg') 42% center/cover no-repeat, #e2e8f0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-window:hover .about-window-photo {
+  transform: scale(1.05);
+}
+
+.about-window-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-window-text h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--text);
+  margin: 0;
+  font-weight: 600;
+}
+
+.about-window-text p {
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-window-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: clamp(14px, 1.5vw, 16px);
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  padding-left: 8px;
+}
+
+.about-window-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  transition: height 0.3s ease;
+  border-radius: 2px;
+}
+
+.about-window:hover .about-window-link {
+  color: var(--primary-600);
+  transform: translateX(4px);
+}
+
+.about-window:hover .about-window-link::before {
+  height: 100%;
 }
 
 .about-list {
@@ -439,6 +598,32 @@ section {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Flatpickr date picker styling */
+.flatpickr-calendar {
+  background: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  font-family: inherit;
+}
+
+.flatpickr-day.disabled,
+.flatpickr-day.notAllowed {
+  color: rgba(0,0,0,0.2);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.flatpickr-day.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.flatpickr-day:hover:not(.disabled):not(.notAllowed) {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -540,6 +725,16 @@ section {
   font-weight: 500;
 }
 
+.date-hint,
+.discount-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 400;
+}
+
 /* Success message */
 .success-message {
   background: linear-gradient(135deg, #10b981, #059669);
@@ -627,7 +822,12 @@ section {
 }
 
 /* Mobile Phone Optimization */
+/* Mobile adjustments for Why Calabria animation */
 @media (max-width: 768px) {
+  #why.animating .card.focus {
+    transform: scale(1.05);
+  }
+  
   html, body {
     height: auto;
     min-height: 100vh;
@@ -754,6 +954,35 @@ section {
   
   .about-content p {
     text-align: left;
+  }
+  
+  .about-window-content {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .about-window-photo {
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    min-width: auto;
+  }
+  
+  .about-window-text {
+    text-align: center;
+  }
+  
+  .about-window-photo {
+    height: 200px;
+  }
+  
+  .about-window-text h3 {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+  
+  .about-window-text p {
+    font-size: clamp(14px, 2vw, 16px);
   }
   
   /* Services mobile */

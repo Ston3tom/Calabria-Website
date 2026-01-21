@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSmoothScroll();
   setupI18n();
   measureHeaderHeight();
+  setupHeroAnimation();
+  setupWhyCalabriaAnimation();
   setupContactForm();
+  setupDatePicker();
   initializeEmailJS();
   setupMobileOptimizations();
 });
@@ -106,17 +109,30 @@ function applyLang(lang, texts) {
       el.setAttribute('placeholder', value);
     }
   });
+  
+  // Handle optgroup labels
+  document.querySelectorAll('optgroup[data-i18n-label]').forEach(el => {
+    const key = el.getAttribute('data-i18n-label');
+    if (!key) return;
+    const value = key.split('.').reduce((acc, k) => (acc ? acc[k] : undefined), dict);
+    if (typeof value === 'string') {
+      el.setAttribute('label', value);
+    }
+  });
 }
 
 function getTranslations() {
   return {
     en: {
       brand: 'Calabria Essence',
-      nav: { why: 'Why Calabria', about: 'About Us', trips: 'Trips Information', book: 'Book / Reserve' },
+      nav: { why: 'Why Calabria', about: 'About Us', beaches: 'Beaches', food: 'Food', culture: 'Culture', trips: 'Trips Information', book: 'Book / Reserve' },
       hero: { title: 'Explore Calabria', subtitle: 'Experience Calabria through local\'s eyes' },
       why: { title: 'Why Calabria?', beach: 'Beaches', beach_desc: 'Immerse yourself in Calabria\'s stunning coastline, where untouched beaches meet crystal-clear waters.', food: 'Food', food_desc: 'Prepare your appetite — Calabria\'s deliciousness is a full-time job!', culture: 'Culture', culture_desc: 'Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.' },
       about: { 
-        title: 'About Us', 
+        title: 'About Us',
+        previewTitle: 'Meet Lorenzo & Kristýna',
+        previewText: 'An Italian–Czech couple bringing you authentic Calabria experiences through local\'s eyes.',
+        clickToRead: 'Click to read our full story →',
         intro: 'Ciao & Ahoj! We\'re Lorenzo and Kristýna — an Italian–Czech couple who met, fell in love, and spent the last three years exploring the world together.',
         lorenzo: 'Lorenzo is the heartbeat of Calabria in our project — born and raised in Cosenza, with a childhood full of seaside summers, family recipes, and local stories.',
         kristyna: 'Kristýna comes from vibrant Prague and brings the curiosity, creativity, and traveler\'s instinct that always pushes us to look beyond the "usual" and discover the real soul of every place we visit.',
@@ -159,6 +175,21 @@ function getTranslations() {
         fourTravellers: '4 travellers',
         fivePlusTravellers: '5+ travellers',
         explainInMessage: 'Will explain in additional message',
+        tripPeriod: 'Select Trip Period',
+        selectPeriod: '-- Select a trip period --',
+        mayJune: 'May - June',
+        june: 'June',
+        july: 'July',
+        period1: 'May 29 - June 3, 2025',
+        period2: 'June 5-10, 2025',
+        period3: 'June 12-17, 2025',
+        period4: 'June 19-24, 2025',
+        period5: 'June 26 - July 1, 2025',
+        period6: 'July 3-8, 2025',
+        period7: 'July 10-15, 2025',
+        period8: 'July 17-22, 2025',
+        period9: 'July 24-29, 2025',
+        dateHint: 'Choose from available trip periods',
         email: 'Email Address',
         emailPlaceholder: 'your.email@example.com',
         phone: 'Phone Number',
@@ -168,7 +199,28 @@ function getTranslations() {
         both: 'Both call and email',
         message: 'Additional Message',
         messagePlaceholder: 'Tell us about your travel preferences, special requests, or any questions you have...',
+        discountCode: 'Discount Code',
+        discountCodePlaceholder: 'Enter discount code',
+        discountHint: 'Enter your discount code if you have one',
         submit: 'Send Inquiry'
+      },
+      beaches: {
+        title: 'Calabria\'s Stunning Beaches',
+        intro: 'Immerse yourself in Calabria\'s stunning coastline, where untouched beaches meet crystal-clear waters.',
+        description: 'Calabria boasts some of Italy\'s most beautiful and pristine beaches. From the turquoise waters of Tropea to the hidden coves along the Ionian coast, each beach offers a unique experience. Discover secluded spots known only to locals, where you can truly unwind and connect with nature.',
+        experience: 'During our trips, we\'ll take you to a different beach every day, each carefully selected for its beauty, accessibility, and authentic local character. Experience the Mediterranean at its finest.'
+      },
+      food: {
+        title: 'Calabria\'s Culinary Delights',
+        intro: 'Prepare your appetite — Calabria\'s deliciousness is a full-time job!',
+        description: 'Calabrian cuisine is a celebration of fresh, local ingredients and time-honored traditions. From the famous \'nduja spicy spreadable sausage to fresh seafood caught daily, every meal tells a story. Experience authentic family recipes passed down through generations, prepared with love and the finest local ingredients.',
+        experience: 'Join us for a PastaClass where you\'ll learn to make traditional pasta from scratch, visit local markets, and dine at restaurants recommended by locals. Taste the true essence of Calabria through its food.'
+      },
+      culture: {
+        title: 'Calabria\'s Rich Heritage',
+        intro: 'Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.',
+        description: 'Calabria is a land steeped in history, where ancient Greek colonies, Byzantine influences, and Norman architecture tell the story of civilizations that have called this region home. From the archaeological sites of Locri and Sybaris to the medieval villages perched on hilltops, every corner reveals layers of history.',
+        experience: 'Experience living traditions through local festivals, artisan workshops, and encounters with the warm-hearted people of Calabria. Discover the stories, music, and crafts that have been preserved and passed down through generations.'
       },
       contactInfo: {
         title: 'Contact Us',
@@ -180,11 +232,14 @@ function getTranslations() {
     },
     it: {
       brand: 'Calabria Essence',
-      nav: { why: 'Perché Calabria', about: 'Chi siamo', trips: 'Informazioni Viaggi', book: 'Prenota / Riserva' },
+      nav: { why: 'Perché Calabria', about: 'Chi siamo', beaches: 'Spiagge', food: 'Cibo', culture: 'Cultura', trips: 'Informazioni Viaggi', book: 'Prenota / Riserva' },
       hero: { title: 'Esplora la Calabria', subtitle: 'Vivi la Calabria attraverso gli occhi dei local' },
       why: { title: 'Perché Calabria?', beach: 'Spiagge', beach_desc: 'Immergiti nella splendida costa calabrese, dove spiagge incontaminate incontrano acque cristalline.', food: 'Cibo', food_desc: 'Prepara il tuo appetito — le delizie della Calabria sono un lavoro a tempo pieno!', culture: 'Cultura', culture_desc: 'Esplora secoli di ricco patrimonio, dalle antiche rovine alle vivaci tradizioni locali.' },
       about: { 
-        title: 'Chi siamo', 
+        title: 'Chi siamo',
+        previewTitle: 'Incontra Lorenzo & Kristýna',
+        previewText: 'Una coppia italo-ceca che ti porta esperienze autentiche della Calabria attraverso gli occhi dei locali.',
+        clickToRead: 'Clicca per leggere la nostra storia completa →',
         intro: 'Ciao & Ahoj! Siamo Lorenzo e Kristýna — una coppia italo-ceca che si è incontrata, si è innamorata e ha trascorso gli ultimi tre anni esplorando il mondo insieme.',
         lorenzo: 'Lorenzo è il cuore pulsante della Calabria nel nostro progetto — nato e cresciuto a Cosenza, con un\'infanzia piena di estati al mare, ricette di famiglia e storie locali.',
         kristyna: 'Kristýna viene dalla vibrante Praga e porta con sé la curiosità, la creatività e l\'istinto del viaggiatore che ci spinge sempre a guardare oltre il "solito" e a scoprire l\'anima vera di ogni luogo che visitiamo.',
@@ -227,6 +282,21 @@ function getTranslations() {
         fourTravellers: '4 viaggiatori',
         fivePlusTravellers: '5+ viaggiatori',
         explainInMessage: 'Spiegherò nel messaggio aggiuntivo',
+        tripPeriod: 'Seleziona Periodo di Viaggio',
+        selectPeriod: '-- Seleziona un periodo di viaggio --',
+        mayJune: 'Maggio - Giugno',
+        june: 'Giugno',
+        july: 'Luglio',
+        period1: '29 Maggio - 3 Giugno 2025',
+        period2: '5-10 Giugno 2025',
+        period3: '12-17 Giugno 2025',
+        period4: '19-24 Giugno 2025',
+        period5: '26 Giugno - 1 Luglio 2025',
+        period6: '3-8 Luglio 2025',
+        period7: '10-15 Luglio 2025',
+        period8: '17-22 Luglio 2025',
+        period9: '24-29 Luglio 2025',
+        dateHint: 'Scegli tra i periodi di viaggio disponibili',
         email: 'Indirizzo Email',
         emailPlaceholder: 'tua.email@esempio.com',
         phone: 'Numero di Telefono',
@@ -236,7 +306,28 @@ function getTranslations() {
         both: 'Sia chiamata che email',
         message: 'Messaggio Aggiuntivo',
         messagePlaceholder: 'Raccontaci le tue preferenze di viaggio, richieste speciali o qualsiasi domanda tu abbia...',
+        discountCode: 'Codice Sconto',
+        discountCodePlaceholder: 'Inserisci codice sconto',
+        discountHint: 'Inserisci il tuo codice sconto se ne hai uno',
         submit: 'Invia Richiesta'
+      },
+      beaches: {
+        title: 'Le Spiagge Stupende della Calabria',
+        intro: 'Immergiti nella splendida costa calabrese, dove spiagge incontaminate incontrano acque cristalline.',
+        description: 'La Calabria vanta alcune delle spiagge più belle e incontaminate d\'Italia. Dalle acque turchesi di Tropea alle calette nascoste lungo la costa ionica, ogni spiaggia offre un\'esperienza unica. Scopri angoli appartati conosciuti solo ai locali, dove puoi davvero rilassarti e connetterti con la natura.',
+        experience: 'Durante i nostri viaggi, ti porteremo ogni giorno su una spiaggia diversa, ciascuna selezionata con cura per la sua bellezza, accessibilità e carattere locale autentico. Vivi il Mediterraneo al suo meglio.'
+      },
+      food: {
+        title: 'Le Delizie Culinarie della Calabria',
+        intro: 'Prepara il tuo appetito — le delizie della Calabria sono un lavoro a tempo pieno!',
+        description: 'La cucina calabrese è una celebrazione di ingredienti freschi e locali e tradizioni secolari. Dalla famosa \'nduja, salsiccia piccante spalmabile, ai frutti di mare freschi pescati quotidianamente, ogni pasto racconta una storia. Vivi ricette autentiche di famiglia tramandate di generazione in generazione, preparate con amore e i migliori ingredienti locali.',
+        experience: 'Unisciti a noi per una PastaClass dove imparerai a fare la pasta tradizionale da zero, visiterai i mercati locali e cenerai in ristoranti consigliati dai locali. Assapora la vera essenza della Calabria attraverso il suo cibo.'
+      },
+      culture: {
+        title: 'Il Ricco Patrimonio della Calabria',
+        intro: 'Esplora secoli di ricco patrimonio, dalle antiche rovine alle vivaci tradizioni locali.',
+        description: 'La Calabria è una terra ricca di storia, dove le colonie greche antiche, le influenze bizantine e l\'architettura normanna raccontano la storia delle civiltà che hanno chiamato questa regione casa. Dai siti archeologici di Locri e Sybaris ai villaggi medievali arroccati sulle colline, ogni angolo rivela strati di storia.',
+        experience: 'Vivi tradizioni viventi attraverso festival locali, laboratori artigianali e incontri con le persone dal cuore caldo della Calabria. Scopri le storie, la musica e l\'artigianato che sono stati preservati e tramandati di generazione in generazione.'
       },
       contactInfo: {
         title: 'Contattaci',
@@ -248,11 +339,14 @@ function getTranslations() {
     },
     de: {
       brand: 'Calabria Essence',
-      nav: { why: 'Warum Kalabrien', about: 'Über uns', trips: 'Reiseinformationen', book: 'Buchen / Reservieren' },
+      nav: { why: 'Warum Kalabrien', about: 'Über uns', beaches: 'Strände', food: 'Essen', culture: 'Kultur', trips: 'Reiseinformationen', book: 'Buchen / Reservieren' },
       hero: { title: 'Kalabrien entdecken', subtitle: 'Erleben Sie Kalabrien durch die Augen der Einheimischen' },
       why: { title: 'Warum Kalabrien?', beach: 'Strände', beach_desc: 'Tauchen Sie ein in Kalabriens atemberaubende Küste, wo unberührte Strände auf kristallklares Wasser treffen.', food: 'Essen', food_desc: 'Bereiten Sie Ihren Appetit vor — Kalabriens Köstlichkeiten sind ein Vollzeitjob!', culture: 'Kultur', culture_desc: 'Erkunden Sie jahrhundertealtes reiches Erbe, von antiken Ruinen bis zu lebendigen lokalen Traditionen.' },
       about: { 
-        title: 'Über uns', 
+        title: 'Über uns',
+        previewTitle: 'Lernen Sie Lorenzo & Kristýna kennen',
+        previewText: 'Ein italienisch-tschechisches Paar, das Ihnen authentische Kalabrien-Erlebnisse durch die Augen der Einheimischen bietet.',
+        clickToRead: 'Klicken Sie, um unsere vollständige Geschichte zu lesen →',
         intro: 'Ciao & Ahoj! Wir sind Lorenzo und Kristýna — ein italienisch-tschechisches Paar, das sich traf, sich verliebte und die letzten drei Jahre damit verbrachte, die Welt gemeinsam zu erkunden.',
         lorenzo: 'Lorenzo ist der Herzschlag Kalabriens in unserem Projekt — geboren und aufgewachsen in Cosenza, mit einer Kindheit voller Sommer am Meer, Familienrezepten und lokalen Geschichten.',
         kristyna: 'Kristýna kommt aus dem lebendigen Prag und bringt die Neugier, Kreativität und den Instinkt des Reisenden mit, der uns immer dazu drängt, über das "Übliche" hinauszuschauen und die wahre Seele jedes Ortes zu entdecken, den wir besuchen.',
@@ -295,6 +389,21 @@ function getTranslations() {
         fourTravellers: '4 Reisende',
         fivePlusTravellers: '5+ Reisende',
         explainInMessage: 'Werde in der zusätzlichen Nachricht erklären',
+        tripPeriod: 'Reisezeitraum auswählen',
+        selectPeriod: '-- Wählen Sie einen Reisezeitraum --',
+        mayJune: 'Mai - Juni',
+        june: 'Juni',
+        july: 'Juli',
+        period1: '29. Mai - 3. Juni 2025',
+        period2: '5.-10. Juni 2025',
+        period3: '12.-17. Juni 2025',
+        period4: '19.-24. Juni 2025',
+        period5: '26. Juni - 1. Juli 2025',
+        period6: '3.-8. Juli 2025',
+        period7: '10.-15. Juli 2025',
+        period8: '17.-22. Juli 2025',
+        period9: '24.-29. Juli 2025',
+        dateHint: 'Wählen Sie aus den verfügbaren Reiseperioden',
         email: 'E-Mail-Adresse',
         emailPlaceholder: 'ihre.email@beispiel.com',
         phone: 'Telefonnummer',
@@ -304,7 +413,28 @@ function getTranslations() {
         both: 'Sowohl Anruf als auch E-Mail',
         message: 'Zusätzliche Nachricht',
         messagePlaceholder: 'Erzählen Sie uns von Ihren Reisevorlieben, besonderen Wünschen oder Fragen...',
+        discountCode: 'Rabattcode',
+        discountCodePlaceholder: 'Rabattcode eingeben',
+        discountHint: 'Geben Sie Ihren Rabattcode ein, falls Sie einen haben',
         submit: 'Anfrage senden'
+      },
+      beaches: {
+        title: 'Kalabriens Atemberaubende Strände',
+        intro: 'Tauchen Sie ein in Kalabriens atemberaubende Küste, wo unberührte Strände auf kristallklares Wasser treffen.',
+        description: 'Kalabrien beherbergt einige der schönsten und unberührtesten Strände Italiens. Von den türkisfarbenen Gewässern von Tropea bis zu den versteckten Buchten entlang der ionischen Küste bietet jeder Strand ein einzigartiges Erlebnis. Entdecken Sie abgelegene Orte, die nur Einheimischen bekannt sind, wo Sie sich wirklich entspannen und mit der Natur verbinden können.',
+        experience: 'Während unserer Reisen bringen wir Sie jeden Tag an einen anderen Strand, jeder sorgfältig ausgewählt für seine Schönheit, Zugänglichkeit und authentischen lokalen Charakter. Erleben Sie das Mittelmeer von seiner besten Seite.'
+      },
+      food: {
+        title: 'Kalabriens Kulinarische Köstlichkeiten',
+        intro: 'Bereiten Sie Ihren Appetit vor — Kalabriens Köstlichkeiten sind ein Vollzeitjob!',
+        description: 'Die kalabrische Küche ist eine Feier frischer, lokaler Zutaten und jahrhundertealter Traditionen. Von der berühmten \'nduja, einer würzigen streichfähigen Wurst, bis zu täglich gefangenen frischen Meeresfrüchten erzählt jede Mahlzeit eine Geschichte. Erleben Sie authentische Familienrezepte, die von Generation zu Generation weitergegeben wurden, zubereitet mit Liebe und den feinsten lokalen Zutaten.',
+        experience: 'Nehmen Sie an einer PastaClass teil, bei der Sie lernen, traditionelle Pasta von Grund auf zuzubereiten, besuchen Sie lokale Märkte und speisen Sie in von Einheimischen empfohlenen Restaurants. Schmecken Sie die wahre Essenz Kalabriens durch sein Essen.'
+      },
+      culture: {
+        title: 'Kalabriens Reiches Erbe',
+        intro: 'Erkunden Sie jahrhundertealtes reiches Erbe, von antiken Ruinen bis zu lebendigen lokalen Traditionen.',
+        description: 'Kalabrien ist ein Land voller Geschichte, in dem antike griechische Kolonien, byzantinische Einflüsse und normannische Architektur die Geschichte der Zivilisationen erzählen, die diese Region ihr Zuhause nannten. Von den archäologischen Stätten von Locri und Sybaris bis zu den mittelalterlichen Dörfern, die auf Hügelkuppen thronen, offenbart jede Ecke Schichten der Geschichte.',
+        experience: 'Erleben Sie lebendige Traditionen durch lokale Feste, Handwerksworkshops und Begegnungen mit den warmherzigen Menschen Kalabriens. Entdecken Sie die Geschichten, Musik und Handwerkskunst, die bewahrt und von Generation zu Generation weitergegeben wurden.'
       },
       contactInfo: {
         title: 'Kontaktieren Sie uns',
@@ -316,11 +446,14 @@ function getTranslations() {
     },
     cz: {
       brand: 'Calabria Essence',
-      nav: { why: 'Proč Kalábrie', about: 'O nás', trips: 'Informace o výletech', book: 'Rezervovat' },
+      nav: { why: 'Proč Kalábrie', about: 'O nás', beaches: 'Pláže', food: 'Jídlo', culture: 'Kultura', trips: 'Informace o výletech', book: 'Rezervovat' },
       hero: { title: 'Objevte Kalábrii', subtitle: 'Poznejte Kalábrii očima místních' },
       why: { title: 'Proč Kalábrie?', beach: 'Pláže', beach_desc: 'Ponořte se do úchvatného pobřeží Kalábrie, kde nedotčené pláže splývají s křišťálově čistou vodou.', food: 'Jídlo', food_desc: 'Připravte si chuťové buňky — lahodnost Kalábrie je práce na plný úvazek!', culture: 'Kultura', culture_desc: 'Objevte staletí bohatého historie, od starověkých ruin po živé místní tradice.' },
       about: { 
-        title: 'O nás', 
+        title: 'O nás',
+        previewTitle: 'Poznejte Lorenza & Kristýnu',
+        previewText: 'Italsko-český pár, který vám přináší autentické zážitky z Kalábrie očima místních.',
+        clickToRead: 'Klikněte pro přečtení našeho celého příběhu →',
         intro: 'Ciao & Ahoj! Jsme Lorenzo a Kristýna — italsko-český pár, který se potkal, zamiloval se a strávil poslední tři roky objevováním světa společně.',
         lorenzo: 'Lorenzo je srdcem Kalábrie v našem projektu — narodil se a vyrostl v Cosenze, s dětstvím plným letních pobytů u moře, rodinných receptů a místních příběhů.',
         kristyna: 'Kristýna pochází z Prahy a přináší zvědavost, kreativitu a cestovatelský instinkt, který nás vždy nutí dívat se za "obvyklé" a objevovat skutečnou duši každého místa, které navštívíme.',
@@ -363,6 +496,21 @@ function getTranslations() {
         fourTravellers: '4 cestující',
         fivePlusTravellers: '5+ cestujících',
         explainInMessage: 'Vysvětlím v dodatečné zprávě',
+        tripPeriod: 'Vyberte Období Cesty',
+        selectPeriod: '-- Vyberte období cesty --',
+        mayJune: 'Květen - Červen',
+        june: 'Červen',
+        july: 'Červenec',
+        period1: '29. května - 3. června 2025',
+        period2: '5.-10. června 2025',
+        period3: '12.-17. června 2025',
+        period4: '19.-24. června 2025',
+        period5: '26. června - 1. července 2025',
+        period6: '3.-8. července 2025',
+        period7: '10.-15. července 2025',
+        period8: '17.-22. července 2025',
+        period9: '24.-29. července 2025',
+        dateHint: 'Vyberte z dostupných období cest',
         email: 'E-mailová adresa',
         emailPlaceholder: 'váš.email@příklad.cz',
         phone: 'Telefonní číslo',
@@ -372,7 +520,28 @@ function getTranslations() {
         both: 'Jak zavolat, tak e-mail',
         message: 'Dodatečná zpráva',
         messagePlaceholder: 'Řekněte nám o svých cestovních preferencích, speciálních požadavcích nebo jakýchkoli otázkách...',
+        discountCode: 'Slevový kód',
+        discountCodePlaceholder: 'Zadejte slevový kód',
+        discountHint: 'Zadejte svůj slevový kód, pokud ho máte',
         submit: 'Odeslat dotaz'
+      },
+      beaches: {
+        title: 'Úchvatné pláže Kalábrie',
+        intro: 'Ponořte se do úchvatného pobřeží Kalábrie, kde nedotčené pláže splývají s křišťálově čistou vodou.',
+        description: 'Kalábrie se může pochlubit některými z nejkrásnějších a nejnedotčenějších pláží v Itálii. Od tyrkysových vod Tropea až po skryté zátoky podél jónského pobřeží, každá pláž nabízí jedinečný zážitek. Objevte odlehlá místa známá pouze místním, kde se můžete opravdu uvolnit a spojit s přírodou.',
+        experience: 'Během našich výletů vás každý den vezmeme na jinou pláž, každou pečlivě vybranou pro svou krásu, dostupnost a autentický místní charakter. Zažijte Středomoří v jeho nejlepší podobě.'
+      },
+      food: {
+        title: 'Kulinářské pochoutky Kalábrie',
+        intro: 'Připravte si chuťové buňky — lahodnost Kalábrie je práce na plný úvazek!',
+        description: 'Kalábrijská kuchyně je oslavou čerstvých, místních surovin a časem prověřených tradic. Od slavné \'nduja, pikantní pomazánkové klobásy, až po čerstvé mořské plody chycené denně, každé jídlo vypráví příběh. Zažijte autentické rodinné recepty předávané z generace na generaci, připravené s láskou a nejlepšími místními surovinami.',
+        experience: 'Připojte se k nám na PastaClass, kde se naučíte vyrábět tradiční těstoviny od základů, navštívíte místní trhy a budete jíst v restauracích doporučených místními. Ochutnejte skutečnou esenci Kalábrie prostřednictvím jejího jídla.'
+      },
+      culture: {
+        title: 'Bohaté dědictví Kalábrie',
+        intro: 'Objevte staletí bohatého dědictví, od starověkých ruin po živé místní tradice.',
+        description: 'Kalábrie je země plná historie, kde starověké řecké kolonie, byzantské vlivy a normanská architektura vyprávějí příběh civilizací, které tuto oblast nazývaly domovem. Od archeologických lokalit Locri a Sybaris až po středověké vesnice tyčící se na vrcholcích kopců, každý kout odhaluje vrstvy historie.',
+        experience: 'Zažijte živé tradice prostřednictvím místních festivalů, řemeslných workshopů a setkání s srdečnými lidmi Kalábrie. Objevte příběhy, hudbu a řemesla, které byly zachovány a předávány z generace na generaci.'
       },
       contactInfo: {
         title: 'Kontaktujte nás',
@@ -597,7 +766,10 @@ function handleFormSubmit(e) {
     email: formData.get('email'),
     phone: formData.get('phone') || 'Not provided',
     travellers: formData.get('travellers'),
+    tripDateStart: formData.get('tripDateStart') || 'Not specified',
+    tripDateEnd: formData.get('tripDateEnd') || 'Not specified',
     contactMethod: formData.get('contactMethod'),
+    discountCode: formData.get('discountCode') || 'None',
     message: formData.get('message') || 'No additional message'
   };
   
@@ -684,6 +856,140 @@ function showErrorMessage() {
   
   // Scroll to error message
   errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Why Calabria section sequential card animation
+function setupWhyCalabriaAnimation() {
+  const whySection = document.getElementById('why');
+  if (!whySection) return;
+  
+  // Check if animation has been shown in this session
+  const hasSeenAnimation = sessionStorage.getItem('whyAnimationShown');
+  if (hasSeenAnimation) return;
+  
+  const cards = whySection.querySelectorAll('.card');
+  if (cards.length !== 3) return;
+  
+  let animationStarted = false;
+  
+  // Wait for hero animation to complete (hero animation takes ~2 seconds)
+  // Add extra delay to let users see the hero text first
+  const heroAnimationDelay = 2500; // 2.5 seconds after page load
+  
+  // Use Intersection Observer to trigger when section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationStarted) {
+        animationStarted = true;
+        
+        // Wait for hero animation to complete before starting
+        setTimeout(() => {
+          // Start the animation sequence
+          whySection.classList.add('animating');
+          
+          // Sequence: show all, then focus on each card one by one
+          setTimeout(() => {
+            // Focus on first card (Beach)
+            cards[0].classList.add('focus');
+            cards[1].classList.remove('focus');
+            cards[2].classList.remove('focus');
+          }, 1000);
+          
+          setTimeout(() => {
+            // Focus on second card (Food)
+            cards[0].classList.remove('focus');
+            cards[1].classList.add('focus');
+            cards[2].classList.remove('focus');
+          }, 3000);
+          
+          setTimeout(() => {
+            // Focus on third card (Culture)
+            cards[0].classList.remove('focus');
+            cards[1].classList.remove('focus');
+            cards[2].classList.add('focus');
+          }, 5000);
+          
+          setTimeout(() => {
+            // Return all to normal
+            cards.forEach(card => card.classList.remove('focus'));
+            whySection.classList.remove('animating');
+            sessionStorage.setItem('whyAnimationShown', 'true');
+          }, 7000);
+        }, heroAnimationDelay);
+        
+        // Stop observing after animation starts
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3, // Trigger when 30% of section is visible
+    rootMargin: '0px'
+  });
+  
+  observer.observe(whySection);
+}
+
+// Hero text animation on first page load
+function setupHeroAnimation() {
+  const heroContent = document.querySelector('.hero-content');
+  if (!heroContent) return;
+  
+  // Check if this is the first visit (using sessionStorage so it resets on new session)
+  const hasSeenAnimation = sessionStorage.getItem('heroAnimationShown');
+  
+  if (!hasSeenAnimation) {
+    // Add animation class
+    heroContent.classList.add('animate-on-load');
+    
+    // Mark as shown in this session
+    sessionStorage.setItem('heroAnimationShown', 'true');
+    
+    // Remove animation class after animation completes to prevent re-triggering
+    setTimeout(() => {
+      heroContent.classList.remove('animate-on-load');
+      // Make sure text is visible after animation
+      const h2 = heroContent.querySelector('h2');
+      const p = heroContent.querySelector('p');
+      if (h2) h2.style.opacity = '1';
+      if (p) p.style.opacity = '1';
+    }, 2000);
+  }
+}
+
+function setupDatePicker() {
+  const tripPeriodSelect = document.getElementById('tripPeriod');
+  const dateStartInput = document.getElementById('tripDateStart');
+  const dateEndInput = document.getElementById('tripDateEnd');
+  
+  if (!tripPeriodSelect || !dateStartInput || !dateEndInput) return;
+  
+  // When user selects a trip period, set the hidden date fields
+  tripPeriodSelect.addEventListener('change', function() {
+    const selectedValue = this.value;
+    
+    if (selectedValue) {
+      const [startDate, endDate] = selectedValue.split('_');
+      dateStartInput.value = startDate;
+      dateEndInput.value = endDate;
+      clearFieldError({ target: this });
+    } else {
+      dateStartInput.value = '';
+      dateEndInput.value = '';
+    }
+  });
+  
+  // Validate on form submission
+  const form = tripPeriodSelect.closest('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      if (!tripPeriodSelect.value) {
+        e.preventDefault();
+        showFieldError(tripPeriodSelect, 'Please select a trip period');
+        tripPeriodSelect.focus();
+        return false;
+      }
+    });
+  }
 }
 
 function setupMobileOptimizations() {
