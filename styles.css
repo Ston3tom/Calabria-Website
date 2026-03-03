@@ -535,7 +535,7 @@ section#about {
   font-size: clamp(16px, 1.8vw, 20px);
 }
 
-/* Homepage services teaser (link to itineraries page) */
+/* Homepage services teaser (link to itinerary page) */
 .services-teaser {
   text-align: center;
   padding: 2.5rem 1rem;
@@ -552,7 +552,7 @@ section#about {
   margin-top: 0.5rem;
 }
 
-/* Itineraries page */
+/* Itinerary page */
 .itinerary-hero {
   margin-top: 20px;
   min-height: 220px;
@@ -579,12 +579,12 @@ section#about {
   font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-/* Itineraries page: more space from edges, content a bit narrower */
-.page-itineraries .container {
+/* Itinerary page: more space from edges, content a bit narrower */
+.page-itinerary .container {
   padding-left: 28px;
   padding-right: 28px;
 }
-.page-itineraries .itinerary-intro {
+.page-itinerary .itinerary-intro {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
@@ -594,6 +594,7 @@ section#about {
 .itinerary-intro {
   margin-top: 2rem;
   padding: 1.5rem 0;
+  text-align: center;
 }
 .itinerary-headline {
   font-size: 1.5rem;
@@ -680,10 +681,13 @@ section#about {
   margin: 0;
   line-height: 1.4;
 }
-/* Add your day photos later, e.g.:
-.day-card-media.day-card-day1 { background: url('day1.jpg') center/cover no-repeat !important; }
-.day-card-media.day-card-day2 { background: url('day2.jpg') center/cover no-repeat !important; }
-... etc for day-card-day3 through day-card-day6 */
+/* Day photos - one per day card */
+.day-card-media.day-card-day1 { background: url("day1.jpg") center/cover no-repeat; }
+.day-card-media.day-card-day2 { background: url("day2.jpg") center/cover no-repeat; }
+.day-card-media.day-card-day3 { background: url("day3.jpg") center/cover no-repeat; }
+.day-card-media.day-card-day4 { background: url("day4.jpg") center/cover no-repeat; }
+.day-card-media.day-card-day5 { background: url("day5.jpg") center/cover no-repeat; }
+.day-card-media.day-card-day6 { background: url("day6.jpg") center/cover no-repeat; }
 
 .itinerary-services-block {
   margin: 2rem 0;
@@ -704,16 +708,12 @@ section#about {
 }
 .itinerary-services-list li {
   padding: 0.25rem 0;
-  padding-left: 1.25rem;
+  padding-left: 0;
   position: relative;
   color: var(--text);
 }
 .itinerary-services-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: bold;
+  content: none;
 }
 .itinerary-services-list.activities {
   display: grid;

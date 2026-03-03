@@ -125,7 +125,7 @@ function getTranslations() {
   return {
     en: {
       brand: 'Calabria Essence',
-      nav: { why: 'Why Calabria', about: 'About Us', beaches: 'Beaches', food: 'Food', culture: 'Culture', trips: 'Trips Information', itineraries: 'Itineraries', book: 'Book / Reserve' },
+      nav: { why: 'Why Calabria', about: 'About Us', beaches: 'Beaches', food: 'Food', culture: 'Culture', trips: 'Trips Information', itineraries: 'Itinerary', book: 'Book / Reserve' },
       hero: { title: 'Explore Calabria', subtitle: 'Experience Calabria through local\'s eyes' },
       why: { title: 'Why Calabria?', beach: 'Beaches', beach_desc: 'Immerse yourself in Calabria\'s stunning coastline, where untouched beaches meet crystal-clear waters.', food: 'Food', food_desc: 'Prepare your appetite — Calabria\'s deliciousness is a full-time job!', culture: 'Culture', culture_desc: 'Explore centuries of rich heritage, from ancient ruins to vibrant local traditions.' },
       about: { 
@@ -146,9 +146,9 @@ function getTranslations() {
       },
       trips: { 
         title: 'Trip Services',
-        exploreTitle: 'Itineraries',
+        exploreTitle: 'Itinerary',
         exploreIntro: 'Discover our 6-day Calabria experience, itinerary, activities, and pricing.',
-        viewItineraries: 'View itineraries',
+        viewItineraries: 'View itinerary',
         itinerary: '6-day itinerary designed by locals (5night)',
         driver: 'Private driver during all stages of the itinerary',
         pension: 'Half pension',
@@ -233,7 +233,7 @@ function getTranslations() {
         tiktok: 'TikTok'
       },
       itineraries: {
-        pageTitle: 'Itineraries',
+        pageTitle: 'Itinerary',
         heroTitle: 'Here is our itinerary',
         secretIngredient: 'Just the basics. As in every grandmother\'s recipe, there is always some secret ingredient that you can only discover by trying it.',
         afterTapping: 'Tap to explore',
@@ -267,12 +267,12 @@ function getTranslations() {
         priceDoubleLabel: 'Double and Family',
         priceDouble: '22.490 Kč per person',
         priceSingleLabel: 'Single traveler',
-        priceSingle: '24.990 Kč'
+        priceSingle: '24.990 Kč per person'
       }
     },
     it: {
       brand: 'Calabria Essence',
-      nav: { why: 'Perché Calabria', about: 'Chi siamo', beaches: 'Spiagge', food: 'Cibo', culture: 'Cultura', trips: 'Informazioni Viaggi', itineraries: 'Itinerari', book: 'Prenota / Riserva' },
+      nav: { why: 'Perché Calabria', about: 'Chi siamo', beaches: 'Spiagge', food: 'Cibo', culture: 'Cultura', trips: 'Informazioni Viaggi', itineraries: 'Itinerario', book: 'Prenota / Riserva' },
       hero: { title: 'Esplora la Calabria', subtitle: 'Vivi la Calabria attraverso gli occhi dei local' },
       why: { title: 'Perché Calabria?', beach: 'Spiagge', beach_desc: 'Immergiti nella splendida costa calabrese, dove spiagge incontaminate incontrano acque cristalline.', food: 'Cibo', food_desc: 'Prepara il tuo appetito — le delizie della Calabria sono un lavoro a tempo pieno!', culture: 'Cultura', culture_desc: 'Esplora secoli di ricco patrimonio, dalle antiche rovine alle vivaci tradizioni locali.' },
       about: { 
@@ -293,9 +293,9 @@ function getTranslations() {
       },
       trips: { 
         title: 'Servizi del Viaggio',
-        exploreTitle: 'Itinerari',
+        exploreTitle: 'Itinerario',
         exploreIntro: 'Scopri la nostra esperienza di 6 giorni in Calabria, itinerario, attività e prezzi.',
-        viewItineraries: 'Vedi itinerari',
+        viewItineraries: 'Vedi itinerario',
         itinerary: 'Itinerario di 6 giorni progettato da local (5 notti)',
         driver: 'Autista privato durante tutte le fasi dell\'itinerario',
         pension: 'Mezza pensione',
@@ -380,7 +380,7 @@ function getTranslations() {
         tiktok: 'TikTok'
       },
       itineraries: {
-        pageTitle: 'Itinerari',
+        pageTitle: 'Itinerario',
         heroTitle: 'Ecco il nostro itinerario',
         secretIngredient: 'Solo le basi. Come in ogni ricetta della nonna, c\'è sempre un ingrediente segreto che puoi scoprire solo provandolo.',
         afterTapping: 'Tocca per esplorare',
@@ -414,12 +414,12 @@ function getTranslations() {
         priceDoubleLabel: 'Doppia e Famiglia',
         priceDouble: '22.490 Kč a persona',
         priceSingleLabel: 'Viaggiatore singolo',
-        priceSingle: '24.990 Kč'
+        priceSingle: '24.990 Kč a persona'
       }
     },
     de: {
       brand: 'Calabria Essence',
-      nav: { why: 'Warum Kalabrien', about: 'Über uns', beaches: 'Strände', food: 'Essen', culture: 'Kultur', trips: 'Reiseinformationen', itineraries: 'Reiserouten', book: 'Buchen / Reservieren' },
+      nav: { why: 'Warum Kalabrien', about: 'Über uns', beaches: 'Strände', food: 'Essen', culture: 'Kultur', trips: 'Reiseinformationen', itineraries: 'Reiseroute', book: 'Buchen / Reservieren' },
       hero: { title: 'Kalabrien entdecken', subtitle: 'Erleben Sie Kalabrien durch die Augen der Einheimischen' },
       why: { title: 'Warum Kalabrien?', beach: 'Strände', beach_desc: 'Tauchen Sie ein in Kalabriens atemberaubende Küste, wo unberührte Strände auf kristallklares Wasser treffen.', food: 'Essen', food_desc: 'Bereiten Sie Ihren Appetit vor — Kalabriens Köstlichkeiten sind ein Vollzeitjob!', culture: 'Kultur', culture_desc: 'Erkunden Sie jahrhundertealtes reiches Erbe, von antiken Ruinen bis zu lebendigen lokalen Traditionen.' },
       about: { 
@@ -440,9 +440,9 @@ function getTranslations() {
       },
       trips: { 
         title: 'Reiseservices',
-        exploreTitle: 'Reiserouten',
+        exploreTitle: 'Reiseroute',
         exploreIntro: 'Entdecken Sie unser 6-tägiges Kalabrien-Erlebnis, Route, Aktivitäten und Preise.',
-        viewItineraries: 'Reiserouten ansehen',
+        viewItineraries: 'Reiseroute ansehen',
         itinerary: '6-tägige Route, entworfen von Einheimischen (5 Nächte)',
         driver: 'Privatfahrer während aller Etappen der Route',
         pension: 'Halbpension',
@@ -527,7 +527,7 @@ function getTranslations() {
         tiktok: 'TikTok'
       },
       itineraries: {
-        pageTitle: 'Reiserouten',
+        pageTitle: 'Reiseroute',
         heroTitle: 'Hier ist unsere Reiseroute',
         secretIngredient: 'Nur das Wesentliche. Wie in jedem Omas Rezept gibt es immer eine geheime Zutat, die man erst beim Ausprobieren entdeckt.',
         afterTapping: 'Tippen zum Erkunden',
@@ -561,12 +561,12 @@ function getTranslations() {
         priceDoubleLabel: 'Doppelzimmer & Familie',
         priceDouble: '22.490 Kč pro Person',
         priceSingleLabel: 'Einzelreisender',
-        priceSingle: '24.990 Kč'
+        priceSingle: '24.990 Kč pro Person'
       }
     },
     cz: {
       brand: 'Calabria Essence',
-      nav: { why: 'Proč Kalábrie', about: 'O nás', beaches: 'Pláže', food: 'Jídlo', culture: 'Kultura', trips: 'Informace o výletech', itineraries: 'Itineráře', book: 'Rezervovat' },
+      nav: { why: 'Proč Kalábrie', about: 'O nás', beaches: 'Pláže', food: 'Jídlo', culture: 'Kultura', trips: 'Informace o výletech', itineraries: 'Itinerář', book: 'Rezervovat' },
       hero: { title: 'Objevte Kalábrii', subtitle: 'Poznejte Kalábrii očima místních' },
       why: { title: 'Proč Kalábrie?', beach: 'Pláže', beach_desc: 'Ponořte se do úchvatného pobřeží Kalábrie, kde nedotčené pláže splývají s křišťálově čistou vodou.', food: 'Jídlo', food_desc: 'Připravte si chuťové buňky — lahodnost Kalábrie je práce na plný úvazek!', culture: 'Kultura', culture_desc: 'Objevte staletí bohatého historie, od starověkých ruin po živé místní tradice.' },
       about: { 
@@ -587,9 +587,9 @@ function getTranslations() {
       },
       trips: { 
         title: 'Služby výletu',
-        exploreTitle: 'Itineráře',
+        exploreTitle: 'Itinerář',
         exploreIntro: 'Objevte náš 6denní zážitek z Kalábrie, itinerář, aktivity a ceny.',
-        viewItineraries: 'Zobrazit itineráře',
+        viewItineraries: 'Zobrazit itinerář',
         itinerary: '6 denní itinerář navržený místními (5 nocí)',
         driver: 'Soukromý řidič po celou doby pobytu',
         pension: 'Polopenze',
@@ -674,7 +674,7 @@ function getTranslations() {
         tiktok: 'TikTok'
       },
       itineraries: {
-        pageTitle: 'Itineráře',
+        pageTitle: 'Itinerář',
         heroTitle: 'Zde je náš itinerář',
         secretIngredient: 'Jen to základní. Jako v každém receptu od babičky vždy existuje nějaká tajná přísada, kterou můžete objevit jen tím, že to vyzkoušíte.',
         afterTapping: 'Klepněte a objevte',
@@ -708,7 +708,7 @@ function getTranslations() {
         priceDoubleLabel: 'Dvoulůžko a rodina',
         priceDouble: '22.490 Kč na osobu',
         priceSingleLabel: 'Solo cestující',
-        priceSingle: '24.990 Kč'
+        priceSingle: '24.990 Kč na osobu'
       }
     }
   };
