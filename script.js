@@ -186,7 +186,7 @@ function getTranslations() {
         period1: 'May 29 - June 3, 2025',
         period2: 'June 5-10, 2025',
         period3: 'June 12-17, 2025',
-        period4: 'June 19-24, 2025',
+        period4: 'June 5-10, 2025',
         period5: 'June 26 - July 1, 2025',
         period6: 'July 3-8, 2025',
         period7: 'July 10-15, 2025',
@@ -333,7 +333,7 @@ function getTranslations() {
         period1: '29 Maggio - 3 Giugno 2025',
         period2: '5-10 Giugno 2025',
         period3: '12-17 Giugno 2025',
-        period4: '19-24 Giugno 2025',
+        period4: '5-10 Giugno 2025',
         period5: '26 Giugno - 1 Luglio 2025',
         period6: '3-8 Luglio 2025',
         period7: '10-15 Luglio 2025',
@@ -480,7 +480,7 @@ function getTranslations() {
         period1: '29. Mai - 3. Juni 2025',
         period2: '5.-10. Juni 2025',
         period3: '12.-17. Juni 2025',
-        period4: '19.-24. Juni 2025',
+        period4: '5.-10. Juni 2025',
         period5: '26. Juni - 1. Juli 2025',
         period6: '3.-8. Juli 2025',
         period7: '10.-15. Juli 2025',
@@ -627,7 +627,7 @@ function getTranslations() {
         period1: '29. května - 3. června 2025',
         period2: '5.-10. června 2025',
         period3: '12.-17. června 2025',
-        period4: '19.-24. června 2025',
+        period4: '5.-10. června 2025',
         period5: '26. června - 1. července 2025',
         period6: '3.-8. července 2025',
         period7: '10.-15. července 2025',
@@ -1122,7 +1122,19 @@ function setupDatePicker() {
   const dateEndInput = document.getElementById('tripDateEnd');
   
   if (!tripPeriodSelect || !dateStartInput || !dateEndInput) return;
-  
+
+  // Ensure trip period options are always displayed in chronological order (by start date)
+  const dateOptions = Array.from(tripPeriodSelect.querySelectorAll('option[value*="_"]'));
+  if (dateOptions.length > 0) {
+    dateOptions.sort((a, b) => {
+      const startA = a.value.split('_')[0];
+      const startB = b.value.split('_')[0];
+      return startA.localeCompare(startB);
+    });
+    tripPeriodSelect.querySelectorAll('optgroup').forEach(og => og.remove());
+    dateOptions.forEach(opt => tripPeriodSelect.appendChild(opt));
+  }
+
   // When user selects a trip period, set the hidden date fields
   tripPeriodSelect.addEventListener('change', function() {
     const selectedValue = this.value;
