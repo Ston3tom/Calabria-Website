@@ -39,13 +39,19 @@ npm run preview  # preview production build
 
 ## Deploy (GitHub Pages)
 
-1. Push to `main` or `master`
-2. Repo **Settings → Pages → Source: GitHub Actions**
-3. After the workflow succeeds, the site is at  
-   `https://<user>.github.io/<repo>/`  
-   (or `https://<user>.github.io/` if the repo is named `<user>.github.io`)
+You do **not** need a `gh-pages` branch for this setup.
 
-The workflow sets `SITE` and `BASE` automatically so project Pages URLs work.
+### Steps
+
+1. Push this repo to GitHub (`main`)
+2. **Settings → Pages → Build and deployment → Source**  
+   Choose **GitHub Actions**  
+   (not “Deploy from a branch” — that list with `main` / `None` / root is the wrong mode)
+3. Open **Actions** → run **Deploy to GitHub Pages** (or push again) → wait for green
+4. Back in **Settings → Pages**, you should see a live URL like  
+   `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+
+If Source is still “Deploy from a branch”, switch it to **GitHub Actions** and save.
 
 ## Project layout
 
