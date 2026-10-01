@@ -7,6 +7,8 @@ interface Props {
   subtitleKey?: string;
   subtitleFallback?: string;
   image: string;
+  /** Tailwind object-position utility, e.g. object-top */
+  imagePosition?: string;
 }
 
 const {
@@ -15,6 +17,7 @@ const {
   subtitleKey,
   subtitleFallback,
   image,
+  imagePosition = 'object-center',
 } = Astro.props;
 ---
 
@@ -22,7 +25,7 @@ const {
   <img
     src={url(image)}
     alt=""
-    class="page-hero-media"
+    class:list={['page-hero-media', imagePosition]}
     width="1920"
     height="1080"
     fetchpriority="high"

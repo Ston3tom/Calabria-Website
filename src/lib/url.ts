@@ -1,6 +1,6 @@
 /** Prefix a site path with Astro `base` (needed for GitHub project Pages). */
 export function url(path: string = '/'): string {
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL; // always ends with /
 
   if (
     path.startsWith('http://') ||
@@ -23,5 +23,13 @@ export function url(path: string = '/'): string {
     return base;
   }
 
-  return `${base}${path.replace(/^\//, '')}`;
+  const clean = path.replace(/^\//, '');
+
+  // Keep asset paths as-is (files with extensions)
+  if (/\.[a-z0-9]+$/i.test(clean.split('?')[0] ?? clean)) {
+    return `${base}${clean}`;
+  }
+
+  // Pages use trailing slashes (matches trailingSlash: 'always')
+  return `${base}${clean.replace(/\/$/, '')}/`;
 }

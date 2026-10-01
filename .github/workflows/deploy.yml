@@ -21,26 +21,44 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Resolve Pages site + base
-        id: pages
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      # Write SITE/BASE into GITHUB_ENV so `astro.config.mjs` definitely sees them
+      - name: Set Pages site + base
         shell: bash
         run: |
           OWNER="${{ github.repository_owner }}"
           REPO="${{ github.event.repository.name }}"
+          echo "SITE=https://${OWNER}.github.io" >> "$GITHUB_ENV"
           if [ "$REPO" = "${OWNER}.github.io" ]; then
-            echo "base=/" >> "$GITHUB_OUTPUT"
+            echo "BASE=/" >> "$GITHUB_ENV"
           else
-            echo "base=/${REPO}" >> "$GITHUB_OUTPUT"
+            echo "BASE=/${REPO}" >> "$GITHUB_ENV"
           fi
-          echo "site=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
+          echo "Deploying with SITE=https://${OWNER}.github.io BASE=/${REPO}"
 
-      - name: Install, build, and upload Pages artifact
-        uses: withastro/action@v3
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify base path in build
+        shell: bash
+        run: |
+          echo "BASE is: $BASE"
+          head -c 800 dist/index.html
+          echo ""
+          grep -oE '(href|src)="[^"]+"' dist/index.html | head -30
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version: "22"
-        env:
-          SITE: ${{ steps.pages.outputs.site }}
-          BASE: ${{ steps.pages.outputs.base }}
+          path: dist
 
   deploy:
     needs: build

@@ -46,12 +46,12 @@ You do **not** need a `gh-pages` branch for this setup.
 1. Push this repo to GitHub (`main`)
 2. **Settings → Pages → Build and deployment → Source**  
    Choose **GitHub Actions**  
-   (not “Deploy from a branch” — that list with `main` / `None` / root is the wrong mode)
-3. Open **Actions** → run **Deploy to GitHub Pages** (or push again) → wait for green
-4. Back in **Settings → Pages**, you should see a live URL like  
-   `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+   (not “Deploy from a branch”)
+3. Open **Actions** → run **Deploy to GitHub Pages** → wait for green
+4. Open the URL shown under **Settings → Pages**  
+   Example: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
-If Source is still “Deploy from a branch”, switch it to **GitHub Actions** and save.
+Subpages and images only work at that full project URL (with `/YOUR_REPO/` in the path), not at `https://YOUR_USERNAME.github.io/` alone.
 
 ## Project layout
 
