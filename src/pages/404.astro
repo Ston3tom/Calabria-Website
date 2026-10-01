@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout title="Page not found — Calabria Essence" description="The page you are looking for does not exist." path="/404">
+  <Header solid />
+  <main id="main" class="section-pad">
+    <div class="container-narrow py-24 text-center">
+      <p class="eyebrow !justify-center">404</p>
+      <h1 class="font-display text-4xl tracking-tight text-sea-950 md:text-5xl">Page not found</h1>
+      <p class="mt-4 text-muted">The page you requested is not available.</p>
+      <a href={url('/')} class="btn btn-primary mt-8">Back home</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

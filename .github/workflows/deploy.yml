@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve Pages site + base
+        id: pages
+        shell: bash
+        run: |
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.event.repository.name }}"
+          if [ "$REPO" = "${OWNER}.github.io" ]; then
+            echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "base=/${REPO}" >> "$GITHUB_OUTPUT"
+          fi
+          echo "site=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
+
+      - name: Install, build, and upload Pages artifact
+        uses: withastro/action@v3
+        with:
+          node-version: "22"
+        env:
+          SITE: ${{ steps.pages.outputs.site }}
+          BASE: ${{ steps.pages.outputs.base }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

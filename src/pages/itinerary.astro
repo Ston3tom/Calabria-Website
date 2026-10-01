@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { url } from '../lib/url';
+
+const days = [
+  {
+    img: 'day1',
+    titleKey: 'day1Title',
+    descKey: 'day1Desc',
+    title: 'Day 1 · Arrival & Pizzo',
+    desc: 'Pickup at Lamezia Terme. Settle in, then an evening stroll in Pizzo with the famous Tartufo.',
+    alt: 'Evening in Pizzo, Calabria',
+    index: '01',
+  },
+  {
+    img: 'main_background',
+    titleKey: 'day2Title',
+    descKey: 'day2Desc',
+    title: 'Day 2 · Reggio & Scilla',
+    desc: 'Morning in Reggio Calabria, then sunset on the cliffs of Scilla overlooking the Strait of Messina.',
+    alt: 'Scilla coastline at dusk',
+    index: '02',
+  },
+  {
+    img: 'day3',
+    titleKey: 'day3Title',
+    descKey: 'day3Desc',
+    title: 'Day 3 · Costa Ionica',
+    desc: 'Ionian coast day with a historic museum visit and a local wine tasting.',
+    alt: 'Costa Ionica landscape',
+    index: '03',
+  },
+  {
+    img: 'day4',
+    titleKey: 'day4Title',
+    descKey: 'day4Desc',
+    title: 'Day 4 · Diamante & Pasta Class',
+    desc: 'From Diamante to a hidden sea arch, then a hands-on pasta class with local recipes.',
+    alt: 'Pasta class and Diamante coast',
+    index: '04',
+  },
+  {
+    img: 'day5',
+    titleKey: 'day5Title',
+    descKey: 'day5Desc',
+    title: 'Day 5 · Costa degli Dei',
+    desc: 'Boat day along the Coast of the Gods, snorkeling at Capo Vaticano, afternoon in Tropea.',
+    alt: 'Boat day near Tropea',
+    index: '05',
+  },
+  {
+    img: 'day6',
+    titleKey: 'day6Title',
+    descKey: 'day6Desc',
+    title: 'Day 6 · Departure',
+    desc: 'Private transfer back to Lamezia Terme — end of the experience.',
+    alt: 'Departure from Calabria',
+    index: '06',
+  },
+];
+
+const services = [
+  { key: 'svcItinerary', text: '6-day itinerary designed by locals (5 nights)' },
+  { key: 'svcDriver', text: 'Private driver for the full itinerary' },
+  { key: 'svcPension', text: 'Full board (meals included)' },
+  { key: 'svcBeaches', text: 'A different beach every day' },
+  { key: 'svcGroup', text: 'Small group — max 10 guests' },
+] as const;
+
+const activities = [
+  { key: 'svcWine', text: 'Wine tasting' },
+  { key: 'svcBoat', text: 'Boat day' },
+  { key: 'svcPasta', text: 'Pasta class' },
+  { key: 'svcSnorkeling', text: 'Snorkeling' },
+  { key: 'svcNature', text: 'Nature excursions' },
+  { key: 'svcVillages', text: 'Historic village walks' },
+] as const;
+---
+
+<BaseLayout
+  title="Itinerary — Calabria Essence"
+  description="6-day Calabria itinerary with private driver, full board, beaches, boat day, pasta class, and small groups. From 22.490 Kč."
+  image="/images/tripservices_section.webp"
+  path="/itinerary"
+>
+  <Header solid current="itineraries" />
+  <main id="main">
+    <PageHero
+      titleKey="itineraries.pageTitle"
+      titleFallback="6-day Calabria itinerary"
+      subtitleKey="itineraries.secretIngredient"
+      subtitleFallback="Just the essentials — the real flavour is in the places, people, and meals you’ll only find with locals."
+      image="/images/tripservices_section.webp"
+    />
+
+    <section class="border-b border-sea-900/8 bg-white/70 backdrop-blur-sm">
+      <div class="container-site grid gap-6 py-7 sm:grid-cols-3">
+        <div class="reveal text-center sm:text-left">
+          <p class="text-xs font-bold tracking-[0.14em] text-muted uppercase" data-i18n="offer.durationLabel">Duration</p>
+          <p class="mt-1.5 font-display text-xl tracking-tight text-sea-950" data-i18n="offer.duration">6 days · 5 nights</p>
+        </div>
+        <div class="reveal reveal-delay-1 text-center sm:border-x sm:border-sea-900/8 sm:px-6 sm:text-left">
+          <p class="text-xs font-bold tracking-[0.14em] text-muted uppercase" data-i18n="offer.fromLabel">From</p>
+          <p class="mt-1.5 font-display text-xl tracking-tight text-sea-950" data-i18n="itineraries.priceDouble">22.490 Kč per person</p>
+        </div>
+        <div class="reveal reveal-delay-2 text-center sm:text-left">
+          <p class="text-xs font-bold tracking-[0.14em] text-muted uppercase" data-i18n="offer.groupLabel">Group</p>
+          <p class="mt-1.5 font-display text-xl tracking-tight text-sea-950" data-i18n="offer.group">Max 10 guests</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container-site">
+        <div class="mx-auto mb-12 max-w-2xl text-center">
+          <p class="eyebrow !justify-center" data-i18n="itineraries.heroTitle">Day by day</p>
+          <h2 class="font-display text-3xl tracking-tight text-sea-950 md:text-4xl" data-i18n="itineraries.daysHeading">
+            Your week in Calabria
+          </h2>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            days.map((day, i) => (
+              <article class:list={['day-card', 'reveal', i % 3 === 1 && 'reveal-delay-1', i % 3 === 2 && 'reveal-delay-2']}>
+                <img src={url(`/images/${day.img}.webp`)} alt={day.alt} loading="lazy" />
+                <div class="day-card-body">
+                  <span class="day-index">{day.index}</span>
+                  <h3 class="font-display text-xl tracking-tight" data-i18n={`itineraries.${day.titleKey}`}>
+                    {day.title}
+                  </h3>
+                  <p class="mt-1.5 text-sm leading-relaxed text-white/85" data-i18n={`itineraries.${day.descKey}`}>
+                    {day.desc}
+                  </p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="reveal mt-14 grid gap-10 overflow-hidden rounded-[1.5rem] bg-sea-950 p-8 text-white md:grid-cols-2 md:p-12">
+          <div>
+            <h3 class="font-display text-2xl tracking-tight" data-i18n="itineraries.tripServicesTitle">What’s included</h3>
+            <ul class="highlight-list mt-6">
+              {
+                services.map((item) => (
+                  <li data-i18n={`itineraries.${item.key}`}>{item.text}</li>
+                ))
+              }
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl tracking-tight" data-i18n="itineraries.activitiesTitle">Activity highlights</h3>
+            <ul class="highlight-list mt-6">
+              {
+                activities.map((item) => (
+                  <li data-i18n={`itineraries.${item.key}`}>{item.text}</li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal mt-8 grid gap-8 rounded-[1.5rem] border border-sea-900/10 bg-white/80 p-8 backdrop-blur-sm sm:grid-cols-[1.2fr_0.8fr] sm:items-center md:p-10">
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <p class="text-sm font-semibold tracking-wide text-muted uppercase" data-i18n="itineraries.priceDoubleLabel">
+                Double & family
+              </p>
+              <p class="mt-2 font-display text-3xl tracking-tight text-sea-950" data-i18n="itineraries.priceDouble">22.490 Kč per person</p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold tracking-wide text-muted uppercase" data-i18n="itineraries.priceSingleLabel">
+                Single traveller
+              </p>
+              <p class="mt-2 font-display text-3xl tracking-tight text-sea-950" data-i18n="itineraries.priceSingle">24.990 Kč per person</p>
+            </div>
+          </div>
+          <div class="text-center sm:text-right">
+            <a href="#contact" class="btn btn-primary" data-i18n="nav.book">Book</a>
+            <p class="mt-3 text-sm text-muted" data-i18n="offer.nextTrips">Next departures: May–July 2027</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactForm compact />
+  </main>
+  <Footer />
+</BaseLayout>

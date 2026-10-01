@@ -1,0 +1,149 @@
+---
+import { TRIP_PERIODS } from '../data/site';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<section id="contact" class:list={['section-pad', compact ? 'bg-transparent pt-0' : 'bg-sea-50/80']}>
+  <div class:list={['container-site grid items-start gap-10', !compact && 'lg:grid-cols-[0.9fr_1.1fr]']}>
+    {
+      !compact && (
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="mb-4 font-display text-4xl tracking-tight text-sea-950 md:text-5xl" data-i18n="contact.title">
+            Send Inquiry
+          </h2>
+          <p class="max-w-md text-muted" data-i18n="contact.intro">
+            Tell us your preferred dates and group size — we’ll reply within 24 hours with availability and next steps.
+          </p>
+          <div class="mt-8 space-y-3 text-sm text-sea-800">
+            <p>
+              <a class="font-semibold text-sea-900 no-underline transition hover:text-chili" href="mailto:calabria.essence@gmail.com"
+                >calabria.essence@gmail.com</a
+              >
+            </p>
+            <p class="text-muted">EN · IT · DE · CZ</p>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      compact && (
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="eyebrow !justify-center">Contact</p>
+          <h2 class="font-display text-3xl tracking-tight text-sea-950 md:text-4xl" data-i18n="contact.title">Send Inquiry</h2>
+          <p class="mx-auto mt-3 max-w-md text-muted" data-i18n="contact.intro">
+            Tell us your preferred dates and group size — we’ll reply within 24 hours with availability and next steps.
+          </p>
+        </div>
+      )
+    }
+
+    <form
+      id="contactForm"
+      class:list={['reveal reveal-delay-1 form-shell', compact && 'mx-auto mt-8 max-w-2xl']}
+      novalidate
+    >
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="field">
+          <label for="firstName"><span data-i18n="contact.firstName">First Name</span> *</label>
+          <input type="text" id="firstName" name="firstName" required autocomplete="given-name" data-i18n-placeholder="contact.firstNamePlaceholder" />
+        </div>
+        <div class="field">
+          <label for="lastName"><span data-i18n="contact.lastName">Last Name</span> *</label>
+          <input type="text" id="lastName" name="lastName" required autocomplete="family-name" data-i18n-placeholder="contact.lastNamePlaceholder" />
+        </div>
+      </div>
+
+      <div class="mt-4 field">
+        <label for="email"><span data-i18n="contact.email">Email Address</span> *</label>
+        <input type="email" id="email" name="email" required autocomplete="email" data-i18n-placeholder="contact.emailPlaceholder" />
+      </div>
+
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div class="field">
+          <label for="travellers"><span data-i18n="contact.travellers">How many travellers?</span> *</label>
+          <select id="travellers" name="travellers" required>
+            <option value="1" data-i18n="contact.oneTraveller" selected>1 traveller</option>
+            <option value="2" data-i18n="contact.twoTravellers">2 travellers</option>
+            <option value="3" data-i18n="contact.threeTravellers">3 travellers</option>
+            <option value="4" data-i18n="contact.fourTravellers">4 travellers</option>
+            <option value="5+" data-i18n="contact.fivePlusTravellers">5+ travellers</option>
+            <option value="explain" data-i18n="contact.explainInMessage">Will explain in additional message</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="tripPeriod"><span data-i18n="contact.tripPeriod">Select Trip Period</span> *</label>
+          <select id="tripPeriod" name="tripPeriod" required>
+            <option value="" data-i18n="contact.selectPeriod">-- Select a trip period --</option>
+            {
+              TRIP_PERIODS.map((group) => (
+                <optgroup
+                  label={
+                    group.groupKey === 'mayJune' ? 'May - June' : group.groupKey === 'june' ? 'June' : 'July'
+                  }
+                  data-i18n-label={`contact.${group.groupKey}`}
+                >
+                  {group.options.map((opt) => (
+                    <option value={opt.value} data-i18n={`contact.${opt.labelKey}`}>
+                      {opt.value.replace('_', ' – ')}
+                    </option>
+                  ))}
+                </optgroup>
+              ))
+            }
+          </select>
+          <input type="hidden" id="tripDateStart" name="tripDateStart" />
+          <input type="hidden" id="tripDateEnd" name="tripDateEnd" />
+        </div>
+      </div>
+
+      <div class="mt-4 field">
+        <label for="phone" data-i18n="contact.phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" data-i18n-placeholder="contact.phonePlaceholder" />
+      </div>
+
+      <fieldset class="mt-4 field">
+        <legend class="mb-2 text-sm font-semibold text-sea-900">
+          <span data-i18n="contact.preferredContact">Preferred Contact Method</span> *
+        </legend>
+        <div class="radio-row">
+          <label class="radio-chip">
+            <input type="radio" name="contactMethod" value="email" required />
+            <span data-i18n="contact.emailOnly">Email me</span>
+          </label>
+          <label class="radio-chip">
+            <input type="radio" name="contactMethod" value="both" required />
+            <span data-i18n="contact.both">Both call and email</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="mt-4 field">
+        <label for="message" data-i18n="contact.message">Additional Message</label>
+        <textarea id="message" name="message" rows="4" data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+      </div>
+
+      <details class="mt-4 rounded-xl border border-sea-900/10 bg-sea-50/60 px-4 py-3">
+        <summary class="cursor-pointer text-sm font-semibold text-sea-900" data-i18n="contact.discountCode">
+          Discount Code
+        </summary>
+        <div class="field mt-3">
+          <input type="text" id="discountCode" name="discountCode" data-i18n-placeholder="contact.discountCodePlaceholder" />
+          <small class="hint" data-i18n="contact.discountHint">Enter your discount code if you have one</small>
+        </div>
+      </details>
+
+      <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto" data-i18n="contact.submit">Send Inquiry</button>
+      <p class="mt-3 text-xs text-muted" data-i18n="contact.privacy">
+        We’ll only use your details to reply about this trip.
+      </p>
+    </form>
+  </div>
+</section>

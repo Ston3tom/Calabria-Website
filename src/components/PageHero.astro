@@ -1,0 +1,45 @@
+---
+import { url } from '../lib/url';
+
+interface Props {
+  titleKey: string;
+  titleFallback: string;
+  subtitleKey?: string;
+  subtitleFallback?: string;
+  image: string;
+}
+
+const {
+  titleKey,
+  titleFallback,
+  subtitleKey,
+  subtitleFallback,
+  image,
+} = Astro.props;
+---
+
+<section class="page-hero">
+  <img
+    src={url(image)}
+    alt=""
+    class="page-hero-media"
+    width="1920"
+    height="1080"
+    fetchpriority="high"
+  />
+  <div class="container-site relative z-10 pb-14 pt-36 md:pb-20 md:pt-44">
+    <p class="mb-3 text-xs font-bold tracking-[0.2em] text-white/80 uppercase" data-i18n="brand">
+      Calabria Essence
+    </p>
+    <h1 class="max-w-3xl font-display text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl" data-i18n={titleKey}>
+      {titleFallback}
+    </h1>
+    {
+      subtitleFallback && (
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg" data-i18n={subtitleKey}>
+          {subtitleFallback}
+        </p>
+      )
+    }
+  </div>
+</section>

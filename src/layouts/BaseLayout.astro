@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  path?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/main_background.webp',
+  path = '/',
+} = Astro.props;
+
+const canonical = new URL(url(path), Astro.site).toString();
+const ogImage = new URL(url(image), Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a2e36" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('/images/logo.webp')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href={url('/images/main_background.webp')} type="image/webp" />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2"
+    >
+      Skip to content
+    </a>
+    <slot />
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

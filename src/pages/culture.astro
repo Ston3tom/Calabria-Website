@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  title="Culture — Calabria Essence"
+  description="Explore Calabria's heritage — Greek colonies, Byzantine traces, hilltop villages, and living local traditions."
+  image="/images/culture_section.webp"
+  path="/culture"
+>
+  <Header solid />
+  <main id="main">
+    <PageHero
+      titleKey="culture.title"
+      titleFallback="Calabria's living heritage"
+      subtitleKey="culture.intro"
+      subtitleFallback="Ancient roots and everyday traditions — culture you feel in the streets, not only in museums."
+      image="/images/culture_section.webp"
+    />
+    <section class="section-pad">
+      <div class="container-site grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div class="space-y-6 text-lg leading-relaxed text-sea-900">
+          <p class="reveal" data-i18n="culture.description">
+            Calabria is a land steeped in history, where ancient Greek colonies, Byzantine influences, and Norman
+            architecture tell the story of civilizations that have called this region home.
+          </p>
+          <p class="reveal" data-i18n="culture.experience">
+            Experience living traditions through local festivals, artisan workshops, and encounters with the warm-hearted
+            people of Calabria.
+          </p>
+          <div class="reveal flex flex-wrap gap-3 pt-2">
+            <a href={url('/itinerary')} class="btn btn-primary" data-i18n="trips.viewItineraries">View itinerary</a>
+            <a href={url('/#contact')} class="btn btn-ghost" data-i18n="nav.book">Book</a>
+          </div>
+        </div>
+        <aside class="reveal editorial-panel p-8 md:p-9">
+          <p class="text-xs font-bold tracking-[0.16em] text-white/55 uppercase">You’ll visit</p>
+          <ul class="highlight-list mt-5">
+            <li>Reggio Calabria & Scilla</li>
+            <li>Historic villages</li>
+            <li>Local museums</li>
+            <li data-i18n="itineraries.svcVillages">Historic village walks</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,113 @@
+---
+import { NAV, SITE } from '../data/site';
+import { url } from '../lib/url';
+
+interface Props {
+  current?: string;
+  solid?: boolean;
+}
+
+const { current = '', solid = false } = Astro.props;
+
+const labels: Record<(typeof NAV)[number]['key'], string> = {
+  why: 'Experience',
+  about: 'About',
+  itineraries: 'Itinerary',
+};
+---
+
+<header
+  class:list={['site-header', solid && 'is-solid']}
+  data-header
+  data-solid-default={solid ? 'true' : undefined}
+>
+  <div class="container-site flex items-center justify-between gap-3 py-3.5 md:py-4">
+      <a href={url('/')} class="flex min-w-0 items-center gap-2.5 no-underline sm:gap-3" aria-label={SITE.name}>
+      <img
+        src={url('/images/logo.webp')}
+        alt=""
+        width="56"
+        height="56"
+        class="h-11 w-11 shrink-0 rounded-full bg-white object-contain p-1 shadow-[0_8px_20px_rgba(6,28,34,0.18)] md:h-14 md:w-14"
+      />
+      <span class="brand-name truncate font-display text-base font-bold tracking-tight sm:text-lg md:text-xl" data-i18n="brand"
+        >{SITE.name}</span
+      >
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Primary">
+      {
+        NAV.map((item) => (
+          <a
+            href={url(item.href)}
+            class="nav-link"
+            data-i18n={`nav.${item.key}`}
+            aria-current={current === item.key ? 'page' : undefined}
+          >
+            {labels[item.key]}
+          </a>
+        ))
+      }
+      <a href={url('/#contact')} class="btn btn-primary !px-4 !py-2.5 text-sm" data-i18n="nav.book">Book</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href={url('/#contact')} class="btn btn-primary !px-3.5 !py-2 text-sm md:hidden" data-i18n="nav.book">Book</a>
+
+      <div class="lang-switcher" role="group" aria-label="Language">
+        {
+          (['en', 'it', 'de', 'cz'] as const).map((lang) => (
+            <button
+              type="button"
+              class="lang-btn"
+              data-lang={lang}
+              aria-label={
+                lang === 'en' ? 'English' : lang === 'it' ? 'Italiano' : lang === 'de' ? 'Deutsch' : 'Čeština'
+              }
+            >
+              {lang.toUpperCase()}
+            </button>
+          ))
+        }
+      </div>
+
+      <button
+        type="button"
+        class="menu-toggle inline-flex h-10 w-10 items-center justify-center rounded-full md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        data-menu-toggle
+        aria-label="Open menu"
+      >
+        <span class="sr-only">Menu</span>
+        <svg data-icon-open width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+        </svg>
+        <svg data-icon-close class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-nav" class="hidden border-t border-white/10 bg-sea-950/98 backdrop-blur-xl md:hidden" data-mobile-nav>
+    <nav class="container-site flex flex-col gap-1 py-4" aria-label="Mobile">
+      {
+        NAV.map((item) => (
+          <a
+            href={url(item.href)}
+            class="rounded-xl px-3 py-3 text-white/90 no-underline transition hover:bg-white/10"
+            data-i18n={`nav.${item.key}`}
+            data-mobile-link
+          >
+            {labels[item.key]}
+          </a>
+        ))
+      }
+      <a href={url('/beaches')} class="rounded-xl px-3 py-3 text-white/70 no-underline transition hover:bg-white/10" data-i18n="nav.beaches" data-mobile-link>Beaches</a>
+      <a href={url('/food')} class="rounded-xl px-3 py-3 text-white/70 no-underline transition hover:bg-white/10" data-i18n="nav.food" data-mobile-link>Food</a>
+      <a href={url('/culture')} class="rounded-xl px-3 py-3 text-white/70 no-underline transition hover:bg-white/10" data-i18n="nav.culture" data-mobile-link>Culture</a>
+      <a href={url('/#contact')} class="btn btn-primary mt-2" data-i18n="nav.book" data-mobile-link>Book</a>
+    </nav>
+  </div>
+</header>

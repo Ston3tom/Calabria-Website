@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  title="Beaches — Calabria Essence"
+  description="Discover Calabria's pristine beaches — Tropea, Ionian coves, and local spots known only to residents."
+  image="/images/beach_section.webp"
+  path="/beaches"
+>
+  <Header solid />
+  <main id="main">
+    <PageHero
+      titleKey="beaches.title"
+      titleFallback="Calabria's beaches"
+      subtitleKey="beaches.intro"
+      subtitleFallback="Untouched shoreline, turquoise water, and quiet coves most visitors never find."
+      image="/images/beach_section.webp"
+    />
+    <section class="section-pad">
+      <div class="container-site grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div class="space-y-6 text-lg leading-relaxed text-sea-900">
+          <p class="reveal" data-i18n="beaches.description">
+            Calabria boasts some of Italy's most beautiful and pristine beaches. From the turquoise waters of Tropea to
+            the hidden coves along the Ionian coast, each beach offers a unique experience.
+          </p>
+          <p class="reveal" data-i18n="beaches.experience">
+            During our trips, we'll take you to a different beach every day, each carefully selected for its beauty,
+            accessibility, and authentic local character.
+          </p>
+          <div class="reveal flex flex-wrap gap-3 pt-2">
+            <a href={url('/itinerary')} class="btn btn-primary" data-i18n="trips.viewItineraries">View itinerary</a>
+            <a href={url('/#contact')} class="btn btn-ghost" data-i18n="nav.book">Book</a>
+          </div>
+        </div>
+        <aside class="reveal editorial-panel p-8 md:p-9">
+          <p class="text-xs font-bold tracking-[0.16em] text-white/55 uppercase">On the trip</p>
+          <ul class="highlight-list mt-5">
+            <li>Tropea & Capo Vaticano</li>
+            <li>Costa degli Dei by boat</li>
+            <li>Quiet local beaches</li>
+            <li data-i18n="itineraries.svcBeaches">A different beach every day</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  title="About Us — Calabria Essence"
+  description="Meet Lorenzo and Kristýna, the Italian–Czech couple behind Calabria Essence authentic local travel experiences."
+  image="/images/aboutus_section.webp"
+  path="/about"
+>
+  <Header solid current="about" />
+  <main id="main">
+    <PageHero
+      titleKey="about.title"
+      titleFallback="About us"
+      subtitleKey="about.photoQuote"
+      subtitleFallback="Through the eyes of the locals"
+      image="/images/aboutus_section.webp"
+    />
+
+    <section class="section-pad">
+      <div class="container-narrow space-y-8 text-lg leading-relaxed text-sea-900">
+        <div class="reveal space-y-5">
+          <p data-i18n="about.intro">
+            Ciao & Ahoj! We're Lorenzo and Kristýna — an Italian–Czech couple who met, fell in love, and spent the last
+            three years exploring the world together.
+          </p>
+          <p data-i18n="about.lorenzo">
+            Lorenzo is the heartbeat of Calabria in our project — born and raised in Cosenza, with a childhood full of
+            seaside summers, family recipes, and local stories.
+          </p>
+          <p data-i18n="about.kristyna">
+            Kristýna comes from vibrant Prague and brings the curiosity, creativity, and traveler's instinct that always
+            pushes us to look beyond the "usual" and discover the real soul of every place we visit.
+          </p>
+        </div>
+
+        <blockquote class="reveal pull-quote">
+          <span data-i18n="about.decision">
+            So we decided to bring Calabria to the world the same way Lorenzo grew up experiencing it: through the
+            local's eyes.
+          </span>
+        </blockquote>
+
+        <div class="reveal space-y-5">
+          <p data-i18n="about.travels">
+            On our travels, something kept happening: no matter where we went, Lorenzo always ended up comparing
+            everything to his home.
+          </p>
+          <p data-i18n="about.idea">
+            That's when the idea was born. We wanted to create the kind of travel experience we always search for
+            ourselves — one that lets you see a destination through the eyes of its people.
+          </p>
+          <p data-i18n="about.today">
+            Today, we're turning that vision into reality — inviting you to join us on a journey built on genuine
+            encounters, local meals, hidden corners, and the true spirit of Southern Italy.
+          </p>
+          <p data-i18n="about.dream">
+            This is our dream becoming real, and we'd be genuinely grateful to have you be a part of it.
+          </p>
+          <p class="font-semibold text-sea-950" data-i18n="about.welcome">
+            Benvenuti — let's explore Calabria together, through the eyes of the locals.
+          </p>
+        </div>
+
+        <div class="reveal flex flex-wrap gap-3 pt-2">
+          <a href={url('/itinerary')} class="btn btn-primary" data-i18n="trips.viewItineraries">View itinerary</a>
+          <a href={url('/#contact')} class="btn btn-ghost" data-i18n="nav.book">Book</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

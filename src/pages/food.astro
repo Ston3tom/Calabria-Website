@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { url } from '../lib/url';
+---
+
+<BaseLayout
+  title="Food — Calabria Essence"
+  description="Taste Calabria: 'nduja, fresh seafood, pasta class, and family recipes shared through local eyes."
+  image="/images/food_section.webp"
+  path="/food"
+>
+  <Header solid />
+  <main id="main">
+    <PageHero
+      titleKey="food.title"
+      titleFallback="Calabria at the table"
+      subtitleKey="food.intro"
+      subtitleFallback="Spicy, generous, and deeply local — food is how Calabria tells its story."
+      image="/images/food_section.webp"
+    />
+    <section class="section-pad">
+      <div class="container-site grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div class="space-y-6 text-lg leading-relaxed text-sea-900">
+          <p class="reveal" data-i18n="food.description">
+            Calabrian cuisine is a celebration of fresh, local ingredients and time-honored traditions. From the famous
+            'nduja to fresh seafood caught daily, every meal tells a story.
+          </p>
+          <p class="reveal" data-i18n="food.experience">
+            Join us for a pasta class where you'll learn to make traditional pasta from scratch, visit local markets, and
+            dine at restaurants recommended by locals.
+          </p>
+          <div class="reveal flex flex-wrap gap-3 pt-2">
+            <a href={url('/itinerary')} class="btn btn-primary" data-i18n="trips.viewItineraries">View itinerary</a>
+            <a href={url('/#contact')} class="btn btn-ghost" data-i18n="nav.book">Book</a>
+          </div>
+        </div>
+        <aside class="reveal editorial-panel p-8 md:p-9">
+          <p class="text-xs font-bold tracking-[0.16em] text-white/55 uppercase">You’ll taste</p>
+          <ul class="highlight-list mt-5">
+            <li>’Nduja & family recipes</li>
+            <li data-i18n="itineraries.svcPasta">Pasta class</li>
+            <li data-i18n="itineraries.svcWine">Wine tasting</li>
+            <li>Local trattorie</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
